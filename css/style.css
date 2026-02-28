@@ -670,36 +670,63 @@ a.article-title:hover {
   text-decoration: none;
   text-shadow: 0 1px #1e7293;
 }
-.article-toc {
-  margin: 1.6em 0 1.92em;
+.post-toc-title {
+  margin: 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+.post-toc-fixed,
+.post-toc-inline {
   padding: 14px 18px;
   border: 1px solid #ddd;
   border-radius: 6px;
   background: #f3f3f3;
-  font-size: 0.95em;
+  font-size: 0.92em;
 }
-.article-toc .toc {
+.post-toc-fixed .toc,
+.post-toc-inline .toc {
   margin: 0.8em 0 0;
   padding-left: 1.2em;
 }
-.article-toc .toc-child {
-  margin: 0.3em 0 0.3em 1.2em;
+.post-toc-fixed .toc-child,
+.post-toc-inline .toc-child {
+  margin: 0.3em 0 0.3em 1.1em;
 }
-.article-toc li {
+.post-toc-fixed li,
+.post-toc-inline li {
   margin: 0.2em 0;
+  line-height: 1.45;
 }
-.article-toc a {
+.post-toc-fixed a,
+.post-toc-inline a {
   color: #555;
   text-decoration: none;
 }
-.article-toc a:hover {
+.post-toc-fixed a:hover,
+.post-toc-inline a:hover {
   color: #258fb8;
   text-decoration: underline;
 }
-.article-toc-title {
-  margin: 0;
-  font-size: 1em;
-  font-weight: bold;
+.post-toc-inline {
+  margin: 1.6em 0 1.92em;
+}
+.post-toc-fixed {
+  display: none;
+}
+@media screen and (min-width: 1280px) {
+  .post-toc-inline {
+    display: none;
+  }
+  .post-toc-fixed {
+    display: block;
+    position: fixed;
+    left: 16px;
+    top: 110px;
+    width: 270px;
+    max-height: calc(100vh - 140px);
+    overflow: auto;
+    z-index: 5;
+  }
 }
 .article-footer {
   font-size: 0.85em;
