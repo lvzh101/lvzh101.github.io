@@ -676,8 +676,12 @@ a.article-title:hover {
   font-weight: bold;
 }
 .post-detail-with-toc {
-  display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
   gap: 18px;
   -webkit-box-align: start;
   -moz-box-align: start;
@@ -688,7 +692,23 @@ a.article-title:hover {
 .post-detail-content .article {
   margin-top: 0;
 }
+.post-detail-content {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-width: 0;
+}
 .post-toc-left {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 0 0 260px;
+  -ms-flex: 0 0 260px;
+  flex: 0 0 260px;
+  width: 260px;
   padding: 14px 18px;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -724,13 +744,14 @@ a.article-title:hover {
   color: #258fb8;
   text-decoration: underline;
 }
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 767px) {
   .post-detail-with-toc {
     display: block;
   }
   .post-toc-left {
     position: static;
     max-height: none;
+    width: auto;
     margin: 1.6em 0 1.92em;
   }
 }
