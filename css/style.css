@@ -675,6 +675,22 @@ a.article-title:hover {
   font-size: 1em;
   font-weight: bold;
 }
+@media screen and (min-width: 768px) {
+  body.post-with-toc-page .outer {
+    max-width: 1460px;
+  }
+  body.post-with-toc-page #sidebar {
+    display: none;
+  }
+  body.post-with-toc-page #main {
+    width: 100%;
+    float: none;
+    margin-right: 0;
+  }
+  body.post-with-toc-page .post-detail-with-toc {
+    gap: 24px;
+  }
+}
 .post-detail-with-toc {
   display: -webkit-box;
   display: -moz-box;
