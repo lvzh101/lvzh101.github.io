@@ -235,7 +235,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2026/02/28/%E5%BC%B1%E7%BD%91%E6%A3%80%E6%B5%8B/" target="_self">
         <div>
-          项目架构 主体功能描述具体功能实现实现监控当前具有上网能力的网卡1. 具备上网能力的网卡检测 (net_iface.h &#x2F; net_iface.cpp)这里负责检测系统中所有能连上互联网的网卡列表。  核心逻辑：通过使用netlink协议与内核进行通信，通过向内核发送 RTM_GETLINK 请求获取网卡信息，然后解析出处于Up状态的网卡名；通过向内核发送RTM_GETROUTE 请求获
+          项目架构 主体功能描述具体功能实现具备上网能力的网卡检测(net_iface.h &#x2F; net_iface.cpp)  这里负责检测系统中所有能连上互联网的网卡列表。  核心逻辑：通过使用netlink协议与内核进行通信，通过向内核发送 RTM_GETLINK 请求获取网卡信息，然后解析出处于Up状态的网卡名；通过向内核发送RTM_GETROUTE 请求获得路由信息，然后解析出具有默认网关
         </div>
       </a>
 
