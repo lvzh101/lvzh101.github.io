@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/pic/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84.png">
 <meta property="article:published_time" content="2026-02-28T15:52:15.000Z">
-<meta property="article:modified_time" content="2026-03-03T16:40:07.578Z">
+<meta property="article:modified_time" content="2026-03-05T18:27:24.609Z">
 <meta property="article:author" content="zhenhong">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/pic/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84.png">
@@ -224,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          10k words
+          11k words
         
       </span>
     
@@ -235,7 +235,7 @@
         
         
         
-          85 mins
+          93 mins
         
       </span>
     
@@ -305,10 +305,76 @@
 <li><p><strong>核心类名</strong>：<code>NetInterfaceManager</code>。</p>
 </li>
 </ul>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><h4 id="AF-NETLINK"><a href="#AF-NETLINK" class="headerlink" title="AF_NETLINK"></a>AF_NETLINK</h4><p><code>AF_NETLINK</code> (Address Family - Netlink) 是 Linux 系统中一种专门用于<strong>内核态与用户态进程之间</strong>（或者用户态进程之间）进行双向通信的 <strong>Socket 协议族</strong>。</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><h4 id="网关是什么（Gateway-是什么）"><a href="#网关是什么（Gateway-是什么）" class="headerlink" title="网关是什么（Gateway 是什么）"></a>网关是什么（Gateway 是什么）</h4><p>在 IP 网络里，你的主机发一个包时会先判断目标 IP 是否“在本地网段”：</p>
+<ul>
+<li><strong>在本地网段</strong>：直接在二层（以太网&#x2F;Wi‑Fi）里 ARP&#x2F;ND 找到目标主机的 MAC，然后直发（不需要网关）。</li>
+<li><strong>不在本地网段</strong>：主机没法二层直达目标，就需要把包交给一个能“继续转发”的设备 —— 这台设备就是<strong>网关&#x2F;路由器（gateway&#x2F;router）</strong>。</li>
+</ul>
+<p>所以“网关”可以理解为：<br><strong>“帮我把包送到别的网络去”的那台路由器的 IP（更准确说是 next-hop 的地址）。</strong></p>
+<p>常见家庭网关例子：</p>
+<ul>
+<li>你电脑 IP：192.168.1.100&#x2F;24</li>
+<li>路由器（网关）IP：192.168.1.1</li>
+<li>你访问 8.8.8.8 这种公网地址时，会先把包发给 192.168.1.1</li>
+</ul>
+<hr>
+<h4 id="外部网关是什么"><a href="#外部网关是什么" class="headerlink" title="外部网关是什么"></a>外部网关是什么</h4><p>“外部网关”不是一个特别严格的标准术语（不同团队&#x2F;文档会用得不一样），但在工程语境里通常指：</p>
+<ul>
+<li><strong>默认网关（default gateway）</strong>：把“去外网&#x2F;去未知网络”的流量发出去的那台网关</li>
+<li>或者更口语一点：<strong>通往外部网络（比如互联网）的出口网关</strong></li>
+</ul>
+<p>“外部网关”基本等价于：</p>
+<ul>
+<li><strong>能把你这张网卡的流量带出本机所在网段、并作为默认出口的下一跳</strong><br>（注意：这个“外部”相对的是“本机&#x2F;本地链路”，不一定保证真能上互联网，只是“路由表上看起来有出口”。）</li>
+</ul>
+<p>也要注意一个常见误解：<br>有默认网关 ≠ 一定能上网</p>
+<ul>
+<li>可能网关不可达（ARP&#x2F;ND 不通）</li>
+<li>可能 DNS 不通</li>
+<li>可能被认证门户（酒店 Wi‑Fi）拦截</li>
+<li>可能默认路由走的是 VPN&#x2F;容器&#x2F;策略路由等</li>
+</ul>
+<p>但**“存在默认路由&#x2F;默认网关”**确实是“看起来具备外网路径”的必要信号之一，因此很多程序会用它做初筛。</p>
+<hr>
+<h4 id="“IPv4-或-IPv6-的默认发向外部网关的路由”是什么"><a href="#“IPv4-或-IPv6-的默认发向外部网关的路由”是什么" class="headerlink" title="“IPv4 或 IPv6 的默认发向外部网关的路由”是什么"></a>“IPv4 或 IPv6 的默认发向外部网关的路由”是什么</h4><p>这句话可以拆成三层意思：</p>
+<h5 id="A-什么是“默认路由”（Default-Route）"><a href="#A-什么是“默认路由”（Default-Route）" class="headerlink" title="A. 什么是“默认路由”（Default Route）"></a><strong>A. 什么是“默认路由”（Default Route）</strong></h5><p>默认路由就是“当没有更具体的路由规则匹配目标地址时，用这一条”。</p>
+<ul>
+<li><strong>IPv4 默认路由</strong>：目的网段是 0.0.0.0&#x2F;0</li>
+<li><strong>IPv6 默认路由</strong>：目的网段是 ::&#x2F;0</li>
+</ul>
+<p>这俩的 &#x2F;0 表示“前缀长度为 0”，也就是<strong>匹配所有地址</strong>（最不具体，兜底用）。</p>
+<h5 id="B-“发向外部网关”指什么"><a href="#B-“发向外部网关”指什么" class="headerlink" title="B. “发向外部网关”指什么"></a><strong>B. “发向外部网关”指什么</strong></h5><p>默认路由通常长这样：</p>
+<ul>
+<li><p>IPv4（典型）：</p>
+<p>default via 192.168.1.1 dev wlan0</p>
+<ul>
+<li>via 192.168.1.1 就是“下一跳网关”</li>
+</ul>
+</li>
+<li><p>IPv6（典型）：</p>
+<p>default via fe80::1 dev wlan0</p>
+<ul>
+<li>IPv6 的下一跳经常是 <strong>link-local</strong> 地址（fe80::&#x2F;10），来自路由器通告（RA）</li>
+</ul>
+</li>
+</ul>
+<p>也可能出现不写 via 的情况（比如 point-to-point、某些隧道或“on-link”默认路由），但工程里很多“判定默认网关”的逻辑主要就是找这种 default via … dev … &#x2F; 0.0.0.0&#x2F;0 via … &#x2F; ::&#x2F;0 via …。</p>
+<h5 id="C-“IPv4-或-IPv6”是什么意思"><a href="#C-“IPv4-或-IPv6”是什么意思" class="headerlink" title="C. “IPv4 或 IPv6”是什么意思"></a><strong>C. “IPv4 或 IPv6”是什么意思</strong></h5><p>表示这台机器“对外的默认出口”可能是：</p>
+<ul>
+<li>只有 IPv4 默认路由（IPv4 能出网）</li>
+<li>只有 IPv6 默认路由（IPv6 能出网）</li>
+<li>两者都有（双栈）</li>
+</ul>
+<p>你的文里提到“检查是否有 IPv4 或 IPv6 的默认发向外部网关的路由”，通常就是在说：</p>
+<ul>
+<li>路由表里是否存在 0.0.0.0&#x2F;0 或 ::&#x2F;0</li>
+<li>并且这条默认路由关联到某个网卡（出口 interface）</li>
+<li>多数实现还会要求它是主路由表（Linux 下常见 RT_TABLE_MAIN 等）里的一条有效默认路由</li>
+</ul>
+<h4 id="AF-NETLINK"><a href="#AF-NETLINK" class="headerlink" title="AF_NETLINK"></a>AF_NETLINK</h4><p><code>AF_NETLINK</code> (Address Family - Netlink) 是 Linux 系统中一种专门用于<strong>内核态与用户态进程之间</strong>（或者用户态进程之间）进行双向通信的 <strong>Socket 协议族</strong>。</p>
 <p>在传统的 Linux 编程中，我们要配置网络或者获取网卡状态，通常会使用 <code>ioctl</code> 系统调用，或者去读取 <code>/proc</code> 目录下的动态文件。但是 <code>AF_NETLINK</code> 被设计出来就是为了替代它们，作为一种更现代、更灵活、性能更高的网络状态交互机制。</p>
 <p>简单来说，当你在代码里写下 <code>socket(AF_NETLINK, SOCK_RAW, ...)</code> 时，你就是在<strong>和 Linux操作系统的网络核心（协议栈）直接建立一个“聊天窗口”</strong>。</p>
-<h6 id="AF-NETLINK-的核心特点与优势："><a href="#AF-NETLINK-的核心特点与优势：" class="headerlink" title="AF_NETLINK 的核心特点与优势："></a><code>AF_NETLINK</code> 的核心特点与优势：</h6><ol>
+<h5 id="AF-NETLINK-的核心特点与优势："><a href="#AF-NETLINK-的核心特点与优势：" class="headerlink" title="AF_NETLINK 的核心特点与优势："></a><code>AF_NETLINK</code> 的核心特点与优势：</h5><ol>
 <li><strong>内核主动通知（双向通信）</strong>： 这是它最大的杀手锏。传统的 <code>ioctl</code> 只能由用户程序主动向内核发起查询（一问一答），如果你想知道网卡状态有没有改变，只能写个死循环不断去查（轮询），这极其消耗 CPU 性能。 而使用 <code>AF_NETLINK</code>，你可以向内核“订阅”某些事件。一旦发生了诸如“<strong>网线被拔掉</strong>”、“<strong>连接上了新的 Wi-Fi</strong>”、“<strong>路由表发生了变化</strong>”这样的事件，Linux 内核会主动通过这个 Socket 给你的程序发送一条消息通知。这也是为什么在这个弱网诊断项目中我们要用它——实现了纯<strong>事件驱动</strong>的网卡状态监听！</li>
 <li><strong>支持多播（Multicast）</strong>： 内核产生的一个网络状态变化事件，可以通过多播组同时发送给系统里的多个监听程序（比如网络管家 NetworkManager 和你写的诊断程序可以同时收到网卡插拔通知）。你会发现你的代码里有 <code>addr.nl_groups = RTMGRP_LINK | RTMGRP_IPV4_ROUTE...</code>，这就是在订阅监听组。</li>
 <li><strong>标准 Socket 接口</strong>： 因为它是基于 Socket 的，所以你可以用标准的 <code>bind()</code>, <code>sendmsg()</code>, <code>recvmsg()</code> 来进行操作，而且非常方便和普通的网络通信一起挂载到 <code>epoll</code> 或 <code>select</code> 的事件循环中进行异步处理。</li>
