@@ -28,7 +28,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/pic/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84.png">
 <meta property="article:published_time" content="2026-02-28T15:52:15.000Z">
-<meta property="article:modified_time" content="2026-03-05T18:27:24.609Z">
+<meta property="article:modified_time" content="2026-03-05T18:37:02.632Z">
 <meta property="article:author" content="zhenhong">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/pic/%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84.png">
@@ -375,9 +375,20 @@
 <p>在传统的 Linux 编程中，我们要配置网络或者获取网卡状态，通常会使用 <code>ioctl</code> 系统调用，或者去读取 <code>/proc</code> 目录下的动态文件。但是 <code>AF_NETLINK</code> 被设计出来就是为了替代它们，作为一种更现代、更灵活、性能更高的网络状态交互机制。</p>
 <p>简单来说，当你在代码里写下 <code>socket(AF_NETLINK, SOCK_RAW, ...)</code> 时，你就是在<strong>和 Linux操作系统的网络核心（协议栈）直接建立一个“聊天窗口”</strong>。</p>
 <h5 id="AF-NETLINK-的核心特点与优势："><a href="#AF-NETLINK-的核心特点与优势：" class="headerlink" title="AF_NETLINK 的核心特点与优势："></a><code>AF_NETLINK</code> 的核心特点与优势：</h5><ol>
-<li><strong>内核主动通知（双向通信）</strong>： 这是它最大的杀手锏。传统的 <code>ioctl</code> 只能由用户程序主动向内核发起查询（一问一答），如果你想知道网卡状态有没有改变，只能写个死循环不断去查（轮询），这极其消耗 CPU 性能。 而使用 <code>AF_NETLINK</code>，你可以向内核“订阅”某些事件。一旦发生了诸如“<strong>网线被拔掉</strong>”、“<strong>连接上了新的 Wi-Fi</strong>”、“<strong>路由表发生了变化</strong>”这样的事件，Linux 内核会主动通过这个 Socket 给你的程序发送一条消息通知。这也是为什么在这个弱网诊断项目中我们要用它——实现了纯<strong>事件驱动</strong>的网卡状态监听！</li>
-<li><strong>支持多播（Multicast）</strong>： 内核产生的一个网络状态变化事件，可以通过多播组同时发送给系统里的多个监听程序（比如网络管家 NetworkManager 和你写的诊断程序可以同时收到网卡插拔通知）。你会发现你的代码里有 <code>addr.nl_groups = RTMGRP_LINK | RTMGRP_IPV4_ROUTE...</code>，这就是在订阅监听组。</li>
-<li><strong>标准 Socket 接口</strong>： 因为它是基于 Socket 的，所以你可以用标准的 <code>bind()</code>, <code>sendmsg()</code>, <code>recvmsg()</code> 来进行操作，而且非常方便和普通的网络通信一起挂载到 <code>epoll</code> 或 <code>select</code> 的事件循环中进行异步处理。</li>
+<li><p><strong>内核主动通知（双向通信）</strong>： 这是它最大的杀手锏。传统的 <code>ioctl</code> 只能由用户程序主动向内核发起查询（一问一答），如果你想知道网卡状态有没有改变，只能写个死循环不断去查（轮询），这极其消耗 CPU 性能。 而使用 <code>AF_NETLINK</code>，你可以向内核“订阅”某些事件。一旦发生了诸如“<strong>网线被拔掉</strong>”、“<strong>连接上了新的 Wi-Fi</strong>”、“<strong>路由表发生了变化</strong>”这样的事件，Linux 内核会主动通过这个 Socket 给你的程序发送一条消息通知。这也是为什么在这个弱网诊断项目中我们要用它——实现了纯<strong>事件驱动</strong>的网卡状态监听！</p>
+</li>
+<li><p><strong>支持多播（Multicast）</strong>： 内核产生的一个网络状态变化事件，可以通过多播组同时发送给系统里的多个监听程序（比如网络管家 NetworkManager 和你写的诊断程序可以同时收到网卡插拔通知）。你会发现你的代码里有 <code>addr.nl_groups = RTMGRP_LINK | RTMGRP_IPV4_ROUTE...</code>，这就是在订阅监听组。</p>
+<ul>
+<li><p><strong>单播（Unicast）</strong>：一对一，发给某一个具体主机（最常见）</p>
+</li>
+<li><p><strong>广播（Broadcast）</strong>：一对所有，发给同一二层网络里的所有主机（IPv4 有，IPv6 没有传统广播）</p>
+</li>
+<li><p><strong>多播（Multicast）</strong>：一对多，发给“加入某个组”的一批主机（比广播更“精准”）</p>
+</li>
+</ul>
+</li>
+<li><p><strong>标准 Socket 接口</strong>： 因为它是基于 Socket 的，所以你可以用标准的 <code>bind()</code>, <code>sendmsg()</code>, <code>recvmsg()</code> 来进行操作，而且非常方便和普通的网络通信一起挂载到 <code>epoll</code> 或 <code>select</code> 的事件循环中进行异步处理。</p>
+</li>
 </ol>
 <h4 id="网卡状态"><a href="#网卡状态" class="headerlink" title="网卡状态"></a>网卡状态</h4><h5 id="核心的基础状态"><a href="#核心的基础状态" class="headerlink" title="核心的基础状态"></a>核心的基础状态</h5><p>这些是判断网卡能不能用的最基本条件：</p>
 <ul>
@@ -837,6 +848,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2026/03/06/epoll%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E6%96%B9%E5%BC%8F/" title="epoll事件触发方式">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">epoll事件触发方式</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
