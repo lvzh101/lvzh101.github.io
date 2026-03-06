@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>四表五链</title>
+    <link href="/2026/03/06/%E5%9B%9B%E8%A1%A8%E4%BA%94%E9%93%BE/"/>
+    <url>/2026/03/06/%E5%9B%9B%E8%A1%A8%E4%BA%94%E9%93%BE/</url>
+    
+    <content type="html"><![CDATA[<p>iptables 的“<strong>四表五链</strong>”是对 Linux netfilter 防火墙体系的经典概括：</p><ul><li><strong>四表</strong>：raw、mangle、nat、filter</li><li><strong>五链</strong>：PREROUTING、INPUT、FORWARD、OUTPUT、POSTROUTING</li></ul><p>可以理解成：</p><ul><li><strong>表（table）</strong>：做哪一类处理</li><li><strong>链（chain）</strong>：在数据包流转的哪个时机处理</li></ul><hr><h2 id="一、四表是什么"><a href="#一、四表是什么" class="headerlink" title="一、四表是什么"></a>一、四表是什么</h2><h3 id="1-filter-表"><a href="#1-filter-表" class="headerlink" title="1. filter 表"></a>1. filter 表</h3><p>这是最常用的表，主要负责<strong>过滤数据包</strong>。</p><p>常见动作：</p><ul><li>放行：ACCEPT</li><li>丢弃：DROP</li><li>拒绝：REJECT</li></ul><p>典型用途：</p><ul><li>允许 22 端口 SSH</li><li>禁止某个 IP 访问</li><li>限制某类流量进入本机</li></ul><hr><h3 id="2-nat-表"><a href="#2-nat-表" class="headerlink" title="2. nat 表"></a>2. nat 表</h3><p>负责<strong>网络地址转换</strong>。</p><p>常见用途：</p><ul><li>SNAT：源地址转换</li><li>DNAT：目标地址转换</li><li>MASQUERADE：动态伪装，常用于家庭路由器共享上网</li><li>端口映射</li></ul><p>典型场景：</p><ul><li>外网访问内网服务器</li><li>多台内网机器共享一个公网 IP 上网</li></ul><p><strong>回包为什么还能回到真正的内网机器？</strong><br>因为 NAT 网关自己记了映射关系，不是接收方知道的。</p><p>比如网关会维护一张表，大概像这样：</p><p>192.168.1.100:50000 ↔ 1.2.3.4:62001<br>于是流程就是：</p><ol><li><p>内网主机发请求<br>192.168.1.100:50000 -&gt; 8.8.8.8:80</p></li><li><p>NAT 网关改写后发出去<br>1.2.3.4:62001 -&gt; 8.8.8.8:80</p></li><li><p>接收方看到的源<br>接收方只看到：</p></li></ol><p>1.2.3.4:62001</p><p>所以它回包时发给：</p><p>8.8.8.8:80 -&gt; 1.2.3.4:62001</p><ol start="4"><li>NAT 网关收到回包<br>网关查自己记录的映射表，发现：</li></ol><p>1.2.3.4:62001 对应的是 192.168.1.100:50000<br>于是再把目标改回去，转给内网主机：</p><p>8.8.8.8:80 -&gt; 192.168.1.100:50000</p><p>所以不是接收方知道原始 IP，<br>而是 NAT 网关靠自己的连接跟踪表，把回包“认领”回去。</p><hr><h3 id="3-mangle-表"><a href="#3-mangle-表" class="headerlink" title="3. mangle 表"></a>3. mangle 表</h3><p>负责<strong>修改数据包内容</strong>，比如一些报文标记、TOS、TTL 等。</p><p>典型用途：</p><ul><li>给数据包打 mark</li><li>配合策略路由使用</li><li>修改某些头部字段</li></ul><p>这个表更偏高级玩法，普通防火墙规则里用得没 filter 和 nat 多。</p><hr><h3 id="4-raw-表"><a href="#4-raw-表" class="headerlink" title="4. raw 表"></a>4. raw 表</h3><p>负责<strong>连接跟踪前的特殊处理</strong>。</p><p>最常见用途：</p><ul><li>配置数据包<strong>不进入连接跟踪</strong>（NOTRACK）</li></ul><p>它优先级很高，但日常使用相对少。</p><hr><h2 id="二、五链是什么"><a href="#二、五链是什么" class="headerlink" title="二、五链是什么"></a>二、五链是什么</h2><p>链表示数据包在内核网络协议栈里流动时，会经过的几个关键位置。</p><h3 id="1-PREROUTING"><a href="#1-PREROUTING" class="headerlink" title="1. PREROUTING"></a>1. PREROUTING</h3><p>数据包<strong>刚进入网卡，还没决定路由前</strong>。</p><p>适合做：</p><ul><li>DNAT</li><li>提前修改包</li><li>某些标记操作</li></ul><hr><h3 id="2-INPUT"><a href="#2-INPUT" class="headerlink" title="2. INPUT"></a>2. INPUT</h3><p>数据包的目标就是<strong>本机</strong>。</p><p>比如：</p><ul><li>别人 SSH 到你的服务器</li><li>浏览器访问你机器上的 Web 服务</li></ul><p>适合做：</p><ul><li>控制哪些流量能进入本机</li></ul><hr><h3 id="3-FORWARD"><a href="#3-FORWARD" class="headerlink" title="3. FORWARD"></a>3. FORWARD</h3><p>数据包<strong>不是发给本机，而是经过本机转发</strong>。</p><p>比如：</p><ul><li>你的 Linux 机器充当路由器</li><li>一台机器经过这台服务器转发到另一台</li></ul><p>适合做：</p><ul><li>控制转发流量是否允许通过</li></ul><hr><h3 id="4-OUTPUT"><a href="#4-OUTPUT" class="headerlink" title="4. OUTPUT"></a>4. OUTPUT</h3><p>数据包是<strong>本机发出去的</strong>。</p><p>比如：</p><ul><li>服务器主动 curl 某网站</li><li>本机发起 DNS 请求</li></ul><p>适合做：</p><ul><li>控制本机程序对外访问</li></ul><hr><h3 id="5-POSTROUTING"><a href="#5-POSTROUTING" class="headerlink" title="5. POSTROUTING"></a>5. POSTROUTING</h3><p>数据包<strong>已经决定了路由，即将发出网卡前</strong>。</p><p>适合做：</p><ul><li>SNAT</li><li>MASQUERADE</li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>epoll事件触发方式</title>
     <link href="/2026/03/06/epoll%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E6%96%B9%E5%BC%8F/"/>
     <url>/2026/03/06/epoll%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E6%96%B9%E5%BC%8F/</url>
