@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>数学零基础</title>
+    <link href="/2026/04/29/%E6%95%B0%E5%AD%A6%E9%9B%B6%E5%9F%BA%E7%A1%80/"/>
+    <url>/2026/04/29/%E6%95%B0%E5%AD%A6%E9%9B%B6%E5%9F%BA%E7%A1%80/</url>
+    
+    <content type="html"><![CDATA[<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>设二次函数</p><p>$$<br>f(x)&#x3D;ax^2+bx+c\quad (a&gt;0)<br>$$</p><p>方程</p><p>$$<br>f(x)&#x3D;x<br>$$</p><p>有两个实根 $x_1,x_2$，且满足</p><p>$$<br>0&lt;x_1&lt;x_2&lt;\frac{1}{a}<br>$$</p><ol><li>当 $x\in(0,x_1)$ 时，证明：$x&lt;f(x)&lt;x_1$</li><li>设函数 $f(x)$ 的图像关于直线 $x&#x3D;x_0$ 对称，证明：</li></ol><p>$$<br>x_0&lt;\frac{x_1}{2}<br>$$</p><h2 id="做题技巧"><a href="#做题技巧" class="headerlink" title="做题技巧"></a>做题技巧</h2><ol><li>看到 $f(x)&#x3D;x$，优先转成</li></ol><p>$$<br>f(x)-x&#x3D;0<br>$$</p><p>再设</p><p>$$<br>f(x)-x&#x3D;a(x-x_1)(x-x_2)<br>$$</p><p>这样更容易利用根的信息。</p><ol start="2"><li>遇到双边不等式，比如</li></ol><p>$$<br>x&lt;f(x)&lt;x_1<br>$$</p><p>可以拆成两个单边不等式：</p><ul><li>证明 $f(x)-x&gt;0$</li><li>证明 $f(x)-x_1&lt;0$</li></ul><ol start="3"><li>已知二次式有两个根时，优先考虑因式分解成</li></ol><p>$$<br>a(x-x_1)(x-x_2)<br>$$</p><p>方便直接判断区间内的正负和大小关系。</p><ol start="4"><li>涉及二次函数对称轴时，先写出</li></ol><p>$$<br>x_0&#x3D;-\frac{b}{2a}<br>$$</p><p>再想办法把 $b$ 用已知根表示出来。</p><ol start="5"><li>题目里额外给出的条件</li></ol><p>$$<br>x_2&lt;\frac{1}{a}<br>$$</p><p>通常就是关键条件，做题时要主动思考它在哪一步发挥作用。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数学</tag>
+      
+      <tag>解题技巧</tag>
+      
+      <tag>二次函数</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hexo 进阶使用与配置教程</title>
     <link href="/2026/03/10/Hexo%E6%95%99%E7%A8%8B/"/>
     <url>/2026/03/10/Hexo%E6%95%99%E7%A8%8B/</url>
