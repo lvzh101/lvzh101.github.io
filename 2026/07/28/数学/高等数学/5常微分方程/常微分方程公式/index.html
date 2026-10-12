@@ -1,0 +1,865 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zhenhong">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="五、常微分方程1. 可分离变量微分方程$$\frac{\mathrm{d}y}{\mathrm{d}x} &#x3D; f(x)g(y) \implies \int \frac{\mathrm{d}y}{g(y)} &#x3D; \int f(x),\mathrm{d}x$$ 说明与总结：  右端能写成 $x$ 的函数与 $y$ 的函数之积时可用。 分离变量后两边积分；注意由 $g(y) &amp;#x3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="personalBlog">
+<meta property="og:url" content="http://example.com/2026/07/28/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/5%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%85%AC%E5%BC%8F/index.html">
+<meta property="og:site_name" content="personalBlog">
+<meta property="og:description" content="五、常微分方程1. 可分离变量微分方程$$\frac{\mathrm{d}y}{\mathrm{d}x} &#x3D; f(x)g(y) \implies \int \frac{\mathrm{d}y}{g(y)} &#x3D; \int f(x),\mathrm{d}x$$ 说明与总结：  右端能写成 $x$ 的函数与 $y$ 的函数之积时可用。 分离变量后两边积分；注意由 $g(y) &amp;#x3">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-28T18:08:12.882Z">
+<meta property="article:modified_time" content="2026-07-28T18:09:23.863Z">
+<meta property="article:author" content="zhenhong">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>personalBlog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-07-29 02:08" pubdate>
+          2026年7月29日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="五、常微分方程"><a href="#五、常微分方程" class="headerlink" title="五、常微分方程"></a>五、常微分方程</h1><h3 id="1-可分离变量微分方程"><a href="#1-可分离变量微分方程" class="headerlink" title="1. 可分离变量微分方程"></a>1. 可分离变量微分方程</h3><p>$$\frac{\mathrm{d}y}{\mathrm{d}x} &#x3D; f(x)g(y) \implies \int \frac{\mathrm{d}y}{g(y)} &#x3D; \int f(x),\mathrm{d}x$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>右端能写成 $x$ 的函数与 $y$ 的函数之积时可用。</li>
+<li>分离变量后两边积分；注意由 $g(y) &#x3D; 0$ 给出的常数解在分离时被两边除掉，可能丢解，需单独检验。</li>
+</ul>
+<hr>
+<h3 id="2-齐次微分方程"><a href="#2-齐次微分方程" class="headerlink" title="2. 齐次微分方程"></a>2. 齐次微分方程</h3><p>$$\frac{\mathrm{d}y}{\mathrm{d}x} &#x3D; \varphi\left(\frac{y}{x}\right)$$</p>
+<p>令 $u &#x3D; \frac{y}{x}, y &#x3D; ux, \frac{\mathrm{d}y}{\mathrm{d}x} &#x3D; u + x\frac{\mathrm{d}u}{\mathrm{d}x}$：</p>
+<p>$$\implies \frac{\mathrm{d}u}{\varphi(u) - u} &#x3D; \frac{\mathrm{d}x}{x}$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>右端可化为 $y&#x2F;x$ 的函数时为齐次方程。</li>
+<li>换元 $u &#x3D; y&#x2F;x$ 后化为可分离变量方程，积分后回代 $u &#x3D; y&#x2F;x$；另需检验 $\varphi(u) - u &#x3D; 0$ 对应的特解 $y &#x3D; ux$（直线解）。</li>
+</ul>
+<hr>
+<h3 id="3-一阶线性微分方程（通解公式）"><a href="#3-一阶线性微分方程（通解公式）" class="headerlink" title="3. 一阶线性微分方程（通解公式）"></a>3. 一阶线性微分方程（通解公式）</h3><p>$$\frac{\mathrm{d}y}{\mathrm{d}x} + P(x)y &#x3D; Q(x)$$</p>
+<p>$$y &#x3D; e^{-\int P(x),\mathrm{d}x} \left( \int Q(x) e^{\int P(x),\mathrm{d}x},\mathrm{d}x + C \right)$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>须先化为标准形式（$y’$ 系数为 1）再套通解公式；$Q(x) \equiv 0$ 为齐次，$Q(x) \not\equiv 0$ 为非齐次。</li>
+<li><strong>最易错点</strong>：外层 $e^{-\int P,\mathrm{d}x}$ 与积分内 $e^{+\int P,\mathrm{d}x}$ 指数符号必须相反；$\int P,\mathrm{d}x$ 取同一不含常数 $C$ 的原函数即可，切勿在指数里再额外 $+ C$（否则重复引入常数翻车）。</li>
+</ul>
+<hr>
+<h3 id="4-伯努利方程（数一）"><a href="#4-伯努利方程（数一）" class="headerlink" title="4. 伯努利方程（数一）"></a>4. 伯努利方程（数一）</h3><p>$$\frac{\mathrm{d}y}{\mathrm{d}x} + P(x)y &#x3D; Q(x)y^n \quad (n \neq 0, 1)$$</p>
+<p>令 $z &#x3D; y^{1-n}$：</p>
+<p>$$\implies \frac{\mathrm{d}z}{\mathrm{d}x} + (1-n)P(x)z &#x3D; (1-n)Q(x)$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>（数一专属，数二、数三不考）</li>
+<li>通过换元 $z &#x3D; y^{1-n}$ 化为关于 $z$ 的一阶线性方程再求解；$n &#x3D; 0$ 时本身即线性、$n &#x3D; 1$ 时即可分离变量。</li>
+</ul>
+<hr>
+<h3 id="5-可化为可分离-齐次的换元型方程"><a href="#5-可化为可分离-齐次的换元型方程" class="headerlink" title="5. 可化为可分离&#x2F;齐次的换元型方程"></a>5. 可化为可分离&#x2F;齐次的换元型方程</h3><ul>
+<li><p><strong>类型一</strong>：$y’ &#x3D; f(ax + by + c)$</p>
+</li>
+<li><p>令 $u &#x3D; ax + by + c, u’ &#x3D; a + by’ \implies \frac{u’ - a}{b} &#x3D; f(u)$</p>
+</li>
+<li><p><strong>类型二</strong>：$\frac{\mathrm{d}y}{\mathrm{d}x} &#x3D; f\left(\frac{a_1 x + b_1 y + c_1}{a x + b y + c}\right)$</p>
+</li>
+<li><p>平移 $x &#x3D; X + h, y &#x3D; Y + k$ 消去常数项化为齐次</p>
+</li>
+</ul>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li><strong>两类常见换元</strong>：</li>
+</ul>
+<ol>
+<li>$y’ &#x3D; f(ax + by + c)$ 令 $u &#x3D; ax + by + c$ 直接化为可分离变量；</li>
+<li>分式型先解联立方程组求平移量 $(h, k)$，无解（系数成比例）时改令 $u &#x3D; ax + by$。数三小题常见。</li>
+</ol>
+<hr>
+<h3 id="6-可降阶高阶方程-y-n-f-x"><a href="#6-可降阶高阶方程-y-n-f-x" class="headerlink" title="6. 可降阶高阶方程 $y^{(n)} &#x3D; f(x)$"></a>6. 可降阶高阶方程 $y^{(n)} &#x3D; f(x)$</h3><p>$$y^{(n)} &#x3D; f(x) \implies \text{逐次积分 } n \text{ 次，得含 } n \text{ 个任意常数的通解}$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>右端只含 $x$，直接连续积分 $n$ 次即可，每次积分产生一个任意常数。</li>
+</ul>
+<hr>
+<h3 id="7-可降阶方程-y’’-f-x-y’-（不显含-y-）"><a href="#7-可降阶方程-y’’-f-x-y’-（不显含-y-）" class="headerlink" title="7. 可降阶方程 $y’’ &#x3D; f(x, y’)$（不显含 $y$）"></a>7. 可降阶方程 $y’’ &#x3D; f(x, y’)$（不显含 $y$）</h3><p>令 $p &#x3D; y’, y’’ &#x3D; \frac{\mathrm{d}p}{\mathrm{d}x}$：</p>
+<p>$$\implies \frac{\mathrm{d}p}{\mathrm{d}x} &#x3D; f(x, p)$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>方程不显含未知函数 $y$。</li>
+<li>令 $p &#x3D; y’$ 降为关于 $p$ 的一阶方程，解出 $p &#x3D; \varphi(x, C_1)$ 后再对 $x$ 积分得 $y$。</li>
+</ul>
+<hr>
+<h3 id="8-可降阶方程-y’’-f-y-y’-（不显含-x-）"><a href="#8-可降阶方程-y’’-f-y-y’-（不显含-x-）" class="headerlink" title="8. 可降阶方程 $y’’ &#x3D; f(y, y’)$（不显含 $x$）"></a>8. 可降阶方程 $y’’ &#x3D; f(y, y’)$（不显含 $x$）</h3><p>令 $p &#x3D; y’, y’’ &#x3D; p \frac{\mathrm{d}p}{\mathrm{d}y}$：</p>
+<p>$$\implies p \frac{\mathrm{d}p}{\mathrm{d}y} &#x3D; f(y, p)$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>方程不显含自变量 $x$。</li>
+<li>令 $p &#x3D; y’$ 并视 $p$ 为 $y$ 的函数，用 $y’’ &#x3D; p \frac{\mathrm{d}p}{\mathrm{d}y}$ 降为关于 $p, y$ 的一阶方程；解出 $p &#x3D; \varphi(y, C_1)$ 后再分离变量求 $y$。</li>
+</ul>
+<hr>
+<h3 id="9-线性微分方程解的结构"><a href="#9-线性微分方程解的结构" class="headerlink" title="9. 线性微分方程解的结构"></a>9. 线性微分方程解的结构</h3><ul>
+<li><strong>齐次</strong> $y’’ + py’ + qy &#x3D; 0$：</li>
+</ul>
+<p>$$y &#x3D; C_1 y_1 + C_2 y_2 \quad (y_1, y_2 \text{ 线性无关})$$</p>
+<ul>
+<li><strong>非齐次</strong> $y’’ + py’ + qy &#x3D; f(x)$：</li>
+</ul>
+<p>$$y &#x3D; C_1 y_1 + C_2 y_2 + y^*$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>$n$ 阶齐次线性方程的通解由 $n$ 个线性无关解线性组合；</li>
+<li>非齐次通解 $&#x3D;$ 对应齐次方程通解 $+$ 非齐次方程任一特解 $y^*$。</li>
+</ul>
+<hr>
+<h3 id="10-非齐次解的叠加原理"><a href="#10-非齐次解的叠加原理" class="headerlink" title="10. 非齐次解的叠加原理"></a>10. 非齐次解的叠加原理</h3><p>若 $y_1^<em>, y_2^</em>$ 分别是 $Ly &#x3D; f_1, Ly &#x3D; f_2$ 的特解，则 $y_1^* + y_2^*$ 是 $Ly &#x3D; f_1 + f_2$ 的特解。</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>$L$ 为线性微分算子。自由项可分解时分别求特解再相加。</li>
+<li>另：同一非齐次方程两个特解之差是对应齐次方程的解。</li>
+</ul>
+<hr>
+<h3 id="11-由特解构造非齐次通解（常考型）"><a href="#11-由特解构造非齐次通解（常考型）" class="headerlink" title="11. 由特解构造非齐次通解（常考型）"></a>11. 由特解构造非齐次通解（常考型）</h3><p>设 $y_1, y_2, y_3$ 是同一二阶非齐次线性方程的特解，且 $y_1 - y_2, y_1 - y_3$ 线性无关：</p>
+<p>$$\implies y &#x3D; C_1(y_1 - y_2) + C_2(y_1 - y_3) + y_1$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>$y_i - y_j$ 均为对应齐次方程的解；取两个线性无关的差作为齐次通解基，再加任一特解（此处取 $y_1$）即得非齐次通解。</li>
+<li>线性无关的判据：两差之比 $\frac{y_1 - y_3}{y_1 - y_2}$ 不恒为常数。已知若干特解反求通解是高频小题。</li>
+</ul>
+<hr>
+<h3 id="12-二阶常系数齐次线性方程通解"><a href="#12-二阶常系数齐次线性方程通解" class="headerlink" title="12. 二阶常系数齐次线性方程通解"></a>12. 二阶常系数齐次线性方程通解</h3><p>特征方程：$r^2 + pr + q &#x3D; 0$</p>
+<p>$$\begin{cases} \Delta &#x3D; p^2 - 4q &gt; 0, r_1 \neq r_2 ,(\text{实}): &amp; y &#x3D; C_1 e^{r_1 x} + C_2 e^{r_2 x} \ \Delta &#x3D; 0, r_1 &#x3D; r_2 &#x3D; -\frac{p}{2}: &amp; y &#x3D; (C_1 + C_2 x)e^{rx} \ \Delta &lt; 0, r &#x3D; \alpha \pm \beta i: &amp; y &#x3D; e^{\alpha x}(C_1 \cos \beta x + C_2 \sin \beta x) \end{cases}$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>由特征方程 $r^2 + pr + q &#x3D; 0$ 根的三种情形写通解。</li>
+<li>判别式速记：$\Delta &#x3D; p^2 - 4q &gt; 0$ 两相异实根、$&#x3D; 0$ 二重实根 $r &#x3D; -p&#x2F;2$、$&lt; 0$ 共轭复根，此时 $\alpha &#x3D; -\frac{p}{2}, \beta &#x3D; \frac{\sqrt{4q - p^2}}{2} ,(\beta \neq 0)$。$p, q$ 为常数。</li>
+</ul>
+<hr>
+<h3 id="13-高于二阶常系数齐次方程通解（数一、数二）"><a href="#13-高于二阶常系数齐次方程通解（数一、数二）" class="headerlink" title="13. 高于二阶常系数齐次方程通解（数一、数二）"></a>13. 高于二阶常系数齐次方程通解（数一、数二）</h3><p>特征方程：$r^n + a_1 r^{n-1} + \dots + a_n &#x3D; 0$</p>
+<ul>
+<li>$k$ 重实根 $r$：$(C_1 + C_2 x + \dots + C_k x^{k-1})e^{rx}$</li>
+<li>$k$ 重复根 $\alpha \pm \beta i$：$e^{\alpha x} [(A_1 + \dots + A_k x^{k-1})\cos \beta x + (B_1 + \dots + B_k x^{k-1})\sin \beta x]$</li>
+</ul>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>（数一、数二要求，数三不考：数三线性微分方程只到二阶）</li>
+<li>每个根按重数贡献对应项，各项相加即通解；共轭复根成对出现，$k$ 重复根 $\alpha \pm \beta i$ 共配 $2k$ 个任意常数。</li>
+</ul>
+<hr>
+<h3 id="14-非齐次特解：-f-x-P-m-x-e-lambda-x-型"><a href="#14-非齐次特解：-f-x-P-m-x-e-lambda-x-型" class="headerlink" title="14. 非齐次特解：$f(x) &#x3D; P_m(x)e^{\lambda x}$ 型"></a>14. 非齐次特解：$f(x) &#x3D; P_m(x)e^{\lambda x}$ 型</h3><p>$$y^* &#x3D; x^k Q_m(x)e^{\lambda x}$$</p>
+<p>$$k &#x3D; \begin{cases} 0, &amp; \lambda \text{ 不是特征根} \ 1, &amp; \lambda \text{ 是单特征根} \ 2, &amp; \lambda \text{ 是二重特征根} \end{cases}$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>$P_m(x)$ 为已知 $m$ 次多项式，$Q_m(x)$ 为同次待定多项式。</li>
+<li>$k$ 取 $\lambda$ 作为特征根的重数（二阶常系数时最多取 2）。操作流程：设好 $y^*$ 后代回原方程，对应同次幂系数比较，解出 $Q_m$ 的待定系数。</li>
+<li>特例 $\lambda &#x3D; 0$（即 $f$ 为常数或纯多项式）最常考：此时 $y^* &#x3D; x^k Q_m(x)$，$k$ 看 $r &#x3D; 0$ 是否为特征根（$q \neq 0$ 取 0、$q &#x3D; 0, p \neq 0$ 取 1、$p &#x3D; q &#x3D; 0$ 取 2）。</li>
+</ul>
+<hr>
+<h3 id="15-非齐次特解：-f-x-e-lambda-x-P-l-x-cos-omega-x-P-n-x-sin-omega-x-型"><a href="#15-非齐次特解：-f-x-e-lambda-x-P-l-x-cos-omega-x-P-n-x-sin-omega-x-型" class="headerlink" title="15. 非齐次特解：$f(x) &#x3D; e^{\lambda x}[P_l(x)\cos \omega x + P_n(x)\sin \omega x]$ 型"></a>15. 非齐次特解：$f(x) &#x3D; e^{\lambda x}[P_l(x)\cos \omega x + P_n(x)\sin \omega x]$ 型</h3><p>$$y^* &#x3D; x^k e^{\lambda x}[R_m(x)\cos \omega x + S_m(x)\sin \omega x], \quad m &#x3D; \max{l, n}$$</p>
+<p>$$k &#x3D; \begin{cases} 0, &amp; \lambda + \omega i \text{ 不是特征根} \ 1, &amp; \lambda + \omega i \text{ 是特征根} \end{cases}$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>$R_m, S_m$ 为 $m$ 次待定多项式（即使原式只含 $\cos$ 或只含 $\sin$，也须同时设 $\cos, \sin$ 两项）。</li>
+<li>统一以 $\lambda + \omega i$（约定 $\omega &gt; 0$）判别：共轭根成对出现，只需判 $\lambda + \omega i$ 这一个即可，无需对 $\lambda - \omega i$ 另判；二阶时复根至多单重，故 $k$ 只取 0 或 1。设好 $y^*$ 后代回原方程比较侧系数解出待定多项式。</li>
+</ul>
+<hr>
+<h3 id="16-欧拉方程（数一）"><a href="#16-欧拉方程（数一）" class="headerlink" title="16. 欧拉方程（数一）"></a>16. 欧拉方程（数一）</h3><p>$$x^2 y’’ + p x y’ + q y &#x3D; f(x) \quad (x &gt; 0)$$</p>
+<p>令 $x &#x3D; e^t ,(t &#x3D; \ln x)$：</p>
+<p>$$x \frac{\mathrm{d}y}{\mathrm{d}x} &#x3D; \frac{\mathrm{d}y}{\mathrm{d}t}, \quad x^2 \frac{\mathrm{d}^2 y}{\mathrm{d}x^2} &#x3D; \frac{\mathrm{d}^2 y}{\mathrm{d}t^2} - \frac{\mathrm{d}y}{\mathrm{d}t}$$</p>
+<p>齐次速判特征方程：</p>
+<p>$$r(r - 1) + pr + q &#x3D; 0$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>（数一专属，数二、数三不考）</li>
+<li>变系数方程，换元 $x &#x3D; e^t$（取 $x &gt; 0, t &#x3D; \ln x$）后化为关于 $t$ 的常系数线性方程求解，再回代 $t &#x3D; \ln x$。</li>
+<li>对应齐次部分可直接套特征方程 $r(r - 1) + pr + q &#x3D; 0$，设 $y &#x3D; x^r$ 代入即得（比换元更快）；$x &lt; 0$ 时取 $x &#x3D; -e^t$ 同理。</li>
+</ul>
+<hr>
+<h3 id="17-微分方程应用建模常用关系"><a href="#17-微分方程应用建模常用关系" class="headerlink" title="17. 微分方程应用建模常用关系"></a>17. 微分方程应用建模常用关系</h3><ul>
+<li><strong>变化率</strong>：$\frac{\mathrm{d}Q}{\mathrm{d}t} &#x3D; k Q \implies Q &#x3D; Q_0 e^{kt}$ （衰变 $k &lt; 0$ &#x2F; 增长 $k &gt; 0$）</li>
+<li><strong>牛顿冷却</strong>：$\frac{\mathrm{d}T}{\mathrm{d}t} &#x3D; k(T - T_0)$</li>
+<li><strong>混合稀释</strong>：$\frac{\mathrm{d}m}{\mathrm{d}t} &#x3D; v_{\text{进}} c_{\text{进}} - v_{\text{出}} \frac{m}{V}$</li>
+</ul>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>应用题先据几何&#x2F;物理意义列方程并确定初始条件，再求解。</li>
+<li><strong>几何套路</strong>：切线斜率 $y’ &#x3D; k$；曲线在点 $(x, y)$ 处切线&#x2F;法线在坐标轴上的截距用 $Y - y &#x3D; y’(X - x)$ （切线）、$Y - y &#x3D; -\frac{1}{y’}(X - x)$ （法线）令 $X &#x3D; 0$ 或 $Y &#x3D; 0$ 求出后列等式。</li>
+<li><strong>物理套路</strong>：指数增长&#x2F;衰变最常见，牛顿冷却、溶液混合稀释次之。</li>
+</ul>
+<hr>
+<h3 id="18-微分方程基本概念（阶与通解-特解）"><a href="#18-微分方程基本概念（阶与通解-特解）" class="headerlink" title="18. 微分方程基本概念（阶与通解&#x2F;特解）"></a>18. 微分方程基本概念（阶与通解&#x2F;特解）</h3><ul>
+<li><strong>阶</strong> $&#x3D;$ 方程中未知函数最高阶导数的阶数</li>
+<li>$n$ 阶方程通解含 $n$ 个独立任意常数；由初值条件定常数得特解</li>
+</ul>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>判断方程的阶；通解中独立任意常数个数 $&#x3D;$ 方程阶数；初始条件（如 $y(x_0) &#x3D; y_0, y’(x_0) &#x3D; y_0’$）用于确定特解。</li>
+<li><strong>注意“独立”</strong>：若表达式中两常数可合并为一个（如 $C_1 + C_2 &#x3D; C$、$C_1 e^{C_2}$ 等），则实际独立常数个数不足，该式不构成 $n$ 阶方程的通解，易被误判，化简后再数。</li>
+</ul>
+<hr>
+<h3 id="19-常用麦克劳林展开式（级数法-特解凑配速查）"><a href="#19-常用麦克劳林展开式（级数法-特解凑配速查）" class="headerlink" title="19. 常用麦克劳林展开式（级数法&#x2F;特解凑配速查）"></a>19. 常用麦克劳林展开式（级数法&#x2F;特解凑配速查）</h3><ul>
+<li>$e^x &#x3D; \sum_{n&#x3D;0}^{\infty} \frac{x^n}{n!}$</li>
+<li>$\sin x &#x3D; \sum_{n&#x3D;0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}$</li>
+<li>$\cos x &#x3D; \sum_{n&#x3D;0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!}$</li>
+<li>$\frac{1}{1-x} &#x3D; \sum_{n&#x3D;0}^{\infty} x^n \quad (\vert{}x\vert{} &lt; 1)$</li>
+<li>$\ln(1+x) &#x3D; \sum_{n&#x3D;1}^{\infty} \frac{(-1)^{n-1} x^n}{n} \quad (-1 &lt; x \leq 1)$</li>
+</ul>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>幂级数解法及验证特解时常用这几条标准展开。</li>
+<li>微分方程章里既用于“设幂级数解 $y &#x3D; \sum a_n x^n$ 代入定系数”，也用于核对 $e^{\lambda x}、\cos \omega x、\sin \omega x$ 型自由项。$e^x, \sin x, \cos x$ 收敛域为全体实数。</li>
+</ul>
+<hr>
+<h3 id="20-一阶常系数线性差分方程（数三）"><a href="#20-一阶常系数线性差分方程（数三）" class="headerlink" title="20. 一阶常系数线性差分方程（数三）"></a>20. 一阶常系数线性差分方程（数三）</h3><p>$$y_{x+1} + a y_x &#x3D; f(x) \quad (a \neq 0)$$</p>
+<ul>
+<li>齐次通解：$y_x &#x3D; C(-a)^x$</li>
+<li>通解 $&#x3D;$ 齐次通解 $+$ 特解 $y_x^*$</li>
+</ul>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>（数三专属，数一、数二不考）</li>
+<li>差分方程与微分方程并列考查，解题结构完全平行：先求齐次通解 $C(-a)^x$，再按自由项 $f(x)$ 类型用待定系数法求特解。</li>
+<li>$f(x) &#x3D; b$ (常数)时：$a \neq -1$ 设 $y^* &#x3D; A$，$a &#x3D; -1$ 设 $y^* &#x3D; Ax$；</li>
+<li>$f(x) &#x3D; P_m(x)d^x$ 时设 $y^* &#x3D; x^k Q_m(x)d^x$，$k$ 看 $d$ 是否为特征根 $-a$。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>http://example.com/2026/07/28/数学/高等数学/5常微分方程/常微分方程公式/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zhenhong</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年7月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/07/28/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1%E5%87%BD%E6%95%B0%E3%80%81%E6%9E%81%E9%99%90%E3%80%81%E8%BF%9E%E7%BB%AD/%E5%87%BD%E6%95%B0%E3%80%81%E6%9E%81%E9%99%90%E3%80%81%E8%BF%9E%E7%BB%AD%E5%85%AC%E5%BC%8F/" title="函数、极限与连续">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">函数、极限与连续</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/07/28/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/4%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E7%A7%AF%E5%88%86%E5%AD%A6/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E7%A7%AF%E5%88%86%E5%AD%A6%E5%85%AC%E5%BC%8F/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

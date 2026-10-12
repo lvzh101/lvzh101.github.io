@@ -1,0 +1,900 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zhenhong">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="四、多元函数微积分学1. 二元函数的极限与连续$$\lim_{(x, y) \to (x_0, y_0)} f(x, y) &#x3D; A$$ 说明与总结：  极限存在要求动点 $(x, y)$ 沿任意路径趋于 $(x_0, y_0)$ 时 $f$ 都趋于同一常数 $A$。 判不存在的常用手段：找两条路径（如取 $y &#x3D; kx$ 让结果含参数 $k$、或 $y &#x3D; x^2$）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="personalBlog">
+<meta property="og:url" content="http://example.com/2026/07/28/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/4%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E7%A7%AF%E5%88%86%E5%AD%A6/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E7%A7%AF%E5%88%86%E5%AD%A6%E5%85%AC%E5%BC%8F/index.html">
+<meta property="og:site_name" content="personalBlog">
+<meta property="og:description" content="四、多元函数微积分学1. 二元函数的极限与连续$$\lim_{(x, y) \to (x_0, y_0)} f(x, y) &#x3D; A$$ 说明与总结：  极限存在要求动点 $(x, y)$ 沿任意路径趋于 $(x_0, y_0)$ 时 $f$ 都趋于同一常数 $A$。 判不存在的常用手段：找两条路径（如取 $y &#x3D; kx$ 让结果含参数 $k$、或 $y &#x3D; x^2$）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-28T18:05:43.729Z">
+<meta property="article:modified_time" content="2026-07-28T18:05:53.063Z">
+<meta property="article:author" content="zhenhong">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>personalBlog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-07-29 02:05" pubdate>
+          2026年7月29日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="四、多元函数微积分学"><a href="#四、多元函数微积分学" class="headerlink" title="四、多元函数微积分学"></a>四、多元函数微积分学</h1><h3 id="1-二元函数的极限与连续"><a href="#1-二元函数的极限与连续" class="headerlink" title="1. 二元函数的极限与连续"></a>1. 二元函数的极限与连续</h3><p>$$\lim_{(x, y) \to (x_0, y_0)} f(x, y) &#x3D; A$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li><strong>极限存在</strong>要求动点 $(x, y)$ 沿<strong>任意路径</strong>趋于 $(x_0, y_0)$ 时 $f$ 都趋于同一常数 $A$。</li>
+<li><strong>判不存在</strong>的常用手段：找两条路径（如取 $y &#x3D; kx$ 让结果含参数 $k$、或 $y &#x3D; x^2$）使极限值不同。</li>
+<li><strong>连续</strong>：$f$ 在 $(x_0, y_0)$ 连续 $\iff \lim_{(x, y) \to (x_0, y_0)} f(x, y) &#x3D; f(x_0, y_0)$ （要求该点有定义、极限存在且二者相等）。</li>
+</ul>
+<hr>
+<h3 id="2-有界闭区域上连续函数的性质"><a href="#2-有界闭区域上连续函数的性质" class="headerlink" title="2. 有界闭区域上连续函数的性质"></a>2. 有界闭区域上连续函数的性质</h3><ul>
+<li>$f \in C(D)$，$D$ 为有界闭区域（连通） $\implies$</li>
+</ul>
+<ol>
+<li>$f$ 有界，且在 $D$ 上取得最大、最小值（最值定理）</li>
+<li>$f$ 取得介于最大、最小值之间的一切值（介值定理）</li>
+</ol>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>前提：$D$ 必须<strong>有界且闭</strong>，$f$ 在 $D$ 上<strong>连续</strong>。</li>
+<li>介值定理还需 $D$ <strong>连通（道路连通）</strong>——本处“区域”默认连通；若 $D$ 不连通介值结论不成立。</li>
+<li>最值定理是求多元最值题的理论基础（保证最值存在，只需比较内部驻点与边界）。</li>
+<li>注：一致连续（Cantor 定理）超出考研数学考纲，不要求掌握。</li>
+</ul>
+<hr>
+<h3 id="3-偏导数定义"><a href="#3-偏导数定义" class="headerlink" title="3. 偏导数定义"></a>3. 偏导数定义</h3><p>$$f_x(x_0, y_0) &#x3D; \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x, y_0) - f(x_0, y_0)}{\Delta x}$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>对 $x$ 求偏导即把 $y$ 视为常数对 $x$ 求导；$f_y$ 同理。</li>
+<li>分段点&#x2F;特殊点处必须<strong>用定义</strong>求。</li>
+<li>记号 $f_x &#x3D; \frac{\partial f}{\partial x} &#x3D; z_x$。</li>
+<li>多元函数某点偏导存在<strong>不</strong>保证函数在该点连续，也不保证可微（一元此结论才成立，多元失效）。</li>
+</ul>
+<hr>
+<h3 id="4-全微分与可微的充要-充分条件"><a href="#4-全微分与可微的充要-充分条件" class="headerlink" title="4. 全微分与可微的充要&#x2F;充分条件"></a>4. 全微分与可微的充要&#x2F;充分条件</h3><p>$$\mathrm{d}z &#x3D; f_x ,\mathrm{d}x + f_y ,\mathrm{d}y$$</p>
+<ul>
+<li><strong>可微定义</strong>：$\Delta z &#x3D; f_x \Delta x + f_y \Delta y + o(\rho)$，$\rho &#x3D; \sqrt{\Delta x^2 + \Delta y^2}$。</li>
+<li><strong>必要条件</strong>：可微 $\implies$ 两个偏导存在 且 函数连续（但偏导<strong>未必连续</strong>）。</li>
+<li><strong>充分条件</strong>：$f_x, f_y$ 在该点<strong>连续</strong> $\implies$ 可微。</li>
+<li><strong>极限验证</strong>：$\lim_{\rho \to 0} \frac{\Delta z - f_x \Delta x - f_y \Delta y}{\rho} &#x3D; 0$。</li>
+<li><strong>近似估值</strong>：$f(x_0 + \Delta x, y_0 + \Delta y) \approx f(x_0, y_0) + f_x \Delta x + f_y \Delta y$。</li>
+</ul>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>关系链：偏导连续 $\implies$ 可微 $\implies$ （偏导存在 且 函数连续），三个箭头逆均不成立。</li>
+<li>验可微（尤其驻点&#x2F;分段点）用 $\lim_{\rho \to 0} \frac{\Delta z - f_x \Delta x - f_y \Delta y}{\rho} &#x3D; 0$。</li>
+<li><strong>估值直接用</strong>（数三高频）：$f(x_0 + \Delta x, y_0 + \Delta y) \approx f(x_0, y_0) + f_x \Delta x + f_y \Delta y$，即用切平面近似函数值，是全微分在近似计算&#x2F;填空题中的主要落点。</li>
+</ul>
+<hr>
+<h3 id="5-二阶混合偏导相等定理（含记号约定）"><a href="#5-二阶混合偏导相等定理（含记号约定）" class="headerlink" title="5. 二阶混合偏导相等定理（含记号约定）"></a>5. 二阶混合偏导相等定理（含记号约定）</h3><p>$$f_{xy}(x_0, y_0) &#x3D; f_{yx}(x_0, y_0) \quad (\text{两混合偏导在该点连续})$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>条件：两个二阶混合偏导 $f_{xy}, f_{yx}$ 在点 $(x_0, y_0)$ 处<strong>连续</strong>，则二者相等（求导次序可交换）。</li>
+<li><strong>记号约定（本讲义统一主流写法）</strong>：$f_{xy} &#x3D; \frac{\partial^2 f}{\partial y \partial x}$ 表示<strong>先对 $x$ 后对 $y$</strong>——下标 $xy$ 自左向右读、$\partial$ 记号自右向左读，二者求导次序一致，对照真题不会绕晕。</li>
+<li>混合偏导连续时次序无关，记号差异不影响结果。实操中常配链式法则求二阶导。</li>
+</ul>
+<hr>
+<h3 id="6-多元复合函数求导（链式法则）"><a href="#6-多元复合函数求导（链式法则）" class="headerlink" title="6. 多元复合函数求导（链式法则）"></a>6. 多元复合函数求导（链式法则）</h3><p>$z &#x3D; f(u, v), u &#x3D; u(x, y), v &#x3D; v(x, y)$：</p>
+<p>$$\frac{\partial z}{\partial x} &#x3D; \frac{\partial z}{\partial u} \frac{\partial u}{\partial x} + \frac{\partial z}{\partial v} \frac{\partial v}{\partial x}$$</p>
+<p>$$\frac{\partial z}{\partial y} &#x3D; \frac{\partial z}{\partial u} \frac{\partial u}{\partial y} + \frac{\partial z}{\partial v} \frac{\partial v}{\partial y}$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>“连线相乘、分线相加”。</li>
+<li>求二阶导时注意 $\frac{\partial z}{\partial u} &#x3D; f_u(u, v)$ 仍是 $u, v$ 的复合函数，须再次链式求导（这是二阶导失分高发处）。</li>
+<li>一元中间变量（如 $u &#x3D; u(t), v &#x3D; v(t)$）时用 $\frac{\mathrm{d}z}{\mathrm{d}t} &#x3D; \frac{\partial z}{\partial u}\frac{\mathrm{d}u}{\mathrm{d}t} + \frac{\partial z}{\partial v}\frac{\mathrm{d}v}{\mathrm{d}t}$（全导数）。</li>
+</ul>
+<hr>
+<h3 id="7-一阶全微分形式不变性"><a href="#7-一阶全微分形式不变性" class="headerlink" title="7. 一阶全微分形式不变性"></a>7. 一阶全微分形式不变性</h3><p>$$\mathrm{d}z &#x3D; \frac{\partial z}{\partial u} ,\mathrm{d}u + \frac{\partial z}{\partial v} ,\mathrm{d}v$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>无论 $u, v$ 是自变量还是中间变量，一阶全微分形式不变。</li>
+<li>配合微分法则 $\mathrm{d}(u \pm v) &#x3D; \mathrm{d}u \pm \mathrm{d}v$、$\mathrm{d}(uv) &#x3D; v,\mathrm{d}u + u,\mathrm{d}v$、$\mathrm{d}\left(\frac{u}{v}\right) &#x3D; \frac{v,\mathrm{d}u - u,\mathrm{d}v}{v^2}$ 等，是求复合&#x2F;隐函数全微分的利器，可避开链式法则的繁琐。</li>
+</ul>
+<hr>
+<h3 id="8-隐函数求导（单方程，含二阶导思路）"><a href="#8-隐函数求导（单方程，含二阶导思路）" class="headerlink" title="8. 隐函数求导（单方程，含二阶导思路）"></a>8. 隐函数求导（单方程，含二阶导思路）</h3><p>$F(x, y, z) &#x3D; 0$ 确定 $z &#x3D; z(x, y)$：</p>
+<p>$$\frac{\partial z}{\partial x} &#x3D; -\frac{F_x}{F_z}, \quad \frac{\partial z}{\partial y} &#x3D; -\frac{F_y}{F_z} \quad (F_z \neq 0)$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>条件（隐函数存在定理）：$F$ 有连续偏导、$F(P_0) &#x3D; 0$、$F_z(P_0) \neq 0$。</li>
+<li>一元 $F(x, y) &#x3D; 0$（设 $F_y \neq 0$）时 $\frac{\mathrm{d}y}{\mathrm{d}x} &#x3D; -\frac{F_x}{F_y}$。</li>
+<li><strong>求二阶偏导</strong>（高频难点）：对已解出的 $\frac{\partial z}{\partial x}$ 再对 $x$（或 $y$）求偏导，凡出现 $z$ 处都要按 $z &#x3D; z(x, y)$ 链式继续，最后把一阶结果代回。</li>
+<li><strong>更稳的办法</strong>：对原方程两边求全微分，整理成 $\mathrm{d}z &#x3D; (\cdots)\mathrm{d}x + (\cdots)\mathrm{d}y$ 后比系数读出各阶偏导。</li>
+</ul>
+<hr>
+<h3 id="9-极值的必要条件与充分条件（二阶判别）"><a href="#9-极值的必要条件与充分条件（二阶判别）" class="headerlink" title="9. 极值的必要条件与充分条件（二阶判别）"></a>9. 极值的必要条件与充分条件（二阶判别）</h3><ul>
+<li><strong>驻点</strong>：$f_x &#x3D; f_y &#x3D; 0$</li>
+<li><strong>设</strong>：$A &#x3D; f_{xx}, B &#x3D; f_{xy}, C &#x3D; f_{yy}, \Delta &#x3D; AC - B^2$</li>
+<li>$\Delta &gt; 0$：有极值（$A &gt; 0$ 极小，$A &lt; 0$ 极大）</li>
+<li>$\Delta &lt; 0$：非极值（鞍点）</li>
+<li>$\Delta &#x3D; 0$：判别失效，另议</li>
+</ul>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>必要条件：可偏导的极值点必为驻点（驻点不一定是极值点）。</li>
+<li>充分条件要求 $f$ 在该点的某邻域内有二阶连续偏导，且 $A, B, C$ 取<strong>驻点处</strong>的值。</li>
+<li>偏导不存在的点也可能是极值点（如 $z &#x3D; \sqrt{x^2 + y^2}$ 在原点），须单独考察。</li>
+</ul>
+<hr>
+<h3 id="10-条件极值与拉格朗日乘数法"><a href="#10-条件极值与拉格朗日乘数法" class="headerlink" title="10. 条件极值与拉格朗日乘数法"></a>10. 条件极值与拉格朗日乘数法</h3><p>$$\min &#x2F; \max f(x, y) \quad \text{s.t.} \quad \varphi(x, y) &#x3D; 0$$</p>
+<p>构造拉格朗日函数：</p>
+<p>$$L(x, y, \lambda) &#x3D; f(x, y) + \lambda \varphi(x, y)$$</p>
+<p>求驻点方程组：</p>
+<p>$$\begin{cases} L_x &#x3D; f_x + \lambda \varphi_x &#x3D; 0 \ L_y &#x3D; f_y + \lambda \varphi_y &#x3D; 0 \ \varphi(x, y) &#x3D; 0 \end{cases}$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>解方程组得驻点，再据实际问题比较定最值（通常实际问题最值存在，无需二阶判别）。</li>
+<li>多约束时引入多个乘子：$L &#x3D; f + \lambda_1 \varphi_1 + \lambda_2 \varphi_2$。</li>
+<li>几何意义：相切处 $\nabla f &#x3D; \lambda \nabla \varphi$（两梯度共线&#x2F;平行）。</li>
+</ul>
+<hr>
+<h3 id="11-有界闭区域上最大最小值求法"><a href="#11-有界闭区域上最大最小值求法" class="headerlink" title="11. 有界闭区域上最大最小值求法"></a>11. 有界闭区域上最大最小值求法</h3><p>$$\max_D f &#x3D; \max { f(\text{内部驻点&#x2F;偏导不存在点}), f(\text{边界最值}) }$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li><strong>步骤</strong>：</li>
+</ul>
+<ol>
+<li>求 $D$ 内部驻点及偏导不存在点处的函数值；</li>
+<li>求 $f$ 在边界上的最值（化为一元或用拉格朗日）；</li>
+<li>比较所有值取最大&#x2F;最小。</li>
+</ol>
+<ul>
+<li>由最值定理保证最值一定存在（前提 $f \in C(D)$、$D$ 有界闭）。</li>
+</ul>
+<hr>
+<h3 id="12-二重积分的概念与几何意义"><a href="#12-二重积分的概念与几何意义" class="headerlink" title="12. 二重积分的概念与几何意义"></a>12. 二重积分的概念与几何意义</h3><p>$$\iint_D f(x, y) ,\mathrm{d}\sigma &#x3D; \lim_{\lambda \to 0} \sum_{i&#x3D;1}^n f(\xi_i, \eta_i) ,\Delta \sigma_i$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>几何意义：$f \geq 0$ 时为以 $D$ 为底、$z &#x3D; f(x, y)$ 为顶的曲顶柱体体积；$f \equiv 1$ 时 $\iint_D \mathrm{d}\sigma &#x3D;$ 区域 $D$ 的面积。</li>
+<li>$\lambda$ 为各小区域直径的最大值。</li>
+<li>可积充分条件：$f$ 在有界闭区域 $D$ 上连续。（二重积分数一、数二、数三均要求；三重积分及曲线、曲面积分为数一专属。）</li>
+</ul>
+<hr>
+<h3 id="13-二重积分的基本性质"><a href="#13-二重积分的基本性质" class="headerlink" title="13. 二重积分的基本性质"></a>13. 二重积分的基本性质</h3><ul>
+<li><strong>线性</strong>：$\iint_D (a f + b g) &#x3D; a \iint_D f + b \iint_D g$</li>
+<li><strong>可加</strong>：$\iint_{D_1 \cup D_2} f &#x3D; \iint_{D_1} f + \iint_{D_2} f$</li>
+<li><strong>保序</strong>：$f \leq g \implies \iint_D f \leq \iint_D g$</li>
+<li><strong>估值</strong>：$m S \leq \iint_D f \leq M S$</li>
+<li><strong>中值</strong>：$\iint_D f &#x3D; f(\xi, \eta) S$</li>
+</ul>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>$S$ 为 $D$ 的面积，$m, M$ 为 $f$ 在 $D$ 上的最小、最大值。</li>
+<li>可加性中 $D_1, D_2$ 无公共内点。</li>
+<li>中值定理要求 $f \in C(D)$、$D$ 为有界闭连通区域，$(\xi, \eta) \in D$。</li>
+<li>保序性常用于比较积分大小、估计积分范围。</li>
+</ul>
+<hr>
+<h3 id="14-直角坐标下化二次积分"><a href="#14-直角坐标下化二次积分" class="headerlink" title="14. 直角坐标下化二次积分"></a>14. 直角坐标下化二次积分</h3><ul>
+<li><strong>$X$ 型 $D$</strong>：$a \leq x \leq b, \varphi_1(x) \leq y \leq \varphi_2(x)$：</li>
+</ul>
+<p>$$\iint_D f &#x3D; \int_a^b \mathrm{d}x \int_{\varphi_1(x)}^{\varphi_2(x)} f(x, y) ,\mathrm{d}y$$</p>
+<ul>
+<li><strong>$Y$ 型 $D$</strong>：$c \leq y \leq d, \psi_1(y) \leq x \leq \psi_2(y)$：</li>
+</ul>
+<p>$$\iint_D f &#x3D; \int_c^d \mathrm{d}y \int_{\psi_1(y)}^{\psi_2(y)} f(x, y) ,\mathrm{d}x$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>据被积函数与区域形状选择积分次序。</li>
+<li>内层遇 $\int e^{-x^2} ,\mathrm{d}x$、$\int \frac{\sin x}{x} ,\mathrm{d}x$、$\int \frac{\mathrm{d}x}{\ln x}$ 等无法显式积出的原函数时，须<strong>交换积分次序</strong>。</li>
+</ul>
+<hr>
+<h3 id="15-极坐标下二重积分"><a href="#15-极坐标下二重积分" class="headerlink" title="15. 极坐标下二重积分"></a>15. 极坐标下二重积分</h3><p>$$\iint_D f(x, y) ,\mathrm{d}\sigma &#x3D; \int_\alpha^\beta \mathrm{d}\theta \int_{r_1(\theta)}^{r_2(\theta)} f(r \cos \theta, r \sin \theta) r ,\mathrm{d}r$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>令 $x &#x3D; r \cos \theta, y &#x3D; r \sin \theta$，<strong>面积元 $\mathrm{d}\sigma &#x3D; r ,\mathrm{d}r ,\mathrm{d}\theta$</strong>（勿漏因子 $r$）。</li>
+<li>适用：区域为圆&#x2F;扇形&#x2F;环形，或被积含 $x^2 + y^2$、$\sqrt{x^2 + y^2}$。</li>
+<li>经典结论：$\int_{-\infty}^{+\infty} e^{-x^2} ,\mathrm{d}x &#x3D; \sqrt{\pi}$（由 $\iint e^{-(x^2 + y^2)}$ 转极坐标得）。</li>
+</ul>
+<hr>
+<h3 id="16-对称性与轮换对称性"><a href="#16-对称性与轮换对称性" class="headerlink" title="16. 对称性与轮换对称性"></a>16. 对称性与轮换对称性</h3><ul>
+<li><p>$D$ 关于 $y$ 轴对称：</p>
+</li>
+<li><p>$f(-x, y) &#x3D; -f(x, y) \implies \iint_D f &#x3D; 0$</p>
+</li>
+<li><p>$f(-x, y) &#x3D; f(x, y) \implies \iint_D f &#x3D; 2 \iint_{D_{x \geq 0}} f$</p>
+</li>
+<li><p>$D$ 关于 $y &#x3D; x$ 对称 $\implies \iint_D f(x, y) ,\mathrm{d}\sigma &#x3D; \iint_D f(y, x) ,\mathrm{d}\sigma$</p>
+</li>
+</ul>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>先看区域对称、再看被积函数关于对称变量的奇偶性（二者都满足才可用）。</li>
+<li>轮换对称（关于 $y &#x3D; x$ 对称）可交换 $x, y$ 地位，常用于化简或证 $\iint_D x ,\mathrm{d}\sigma &#x3D; \iint_D y ,\mathrm{d}\sigma$。</li>
+<li>能极大简化计算，务必优先检查。</li>
+</ul>
+<hr>
+<h3 id="17-全微分的近似计算公式（数三高频）"><a href="#17-全微分的近似计算公式（数三高频）" class="headerlink" title="17. 全微分的近似计算公式（数三高频）"></a>17. 全微分的近似计算公式（数三高频）</h3><p>$$f(x_0 + \Delta x, y_0 + \Delta y) \approx f(x_0, y_0) + f_x(x_0, y_0) \Delta x + f_y(x_0, y_0) \Delta y$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>由可微定义 $\Delta z &#x3D; f_x \Delta x + f_y \Delta y + o(\rho)$ 略去高阶无穷小得（几何上即用切平面近似曲面）。</li>
+<li><strong>用法</strong>：选取 $f$ 简单且 $(x_0, y_0)$ 取整、$\Delta x, \Delta y$ 小的基点，代入即得近似值。</li>
+<li>典型如估 $\sqrt{1.02^2 + 1.97^2}$、$1.04^{2.02}$ 等。这是该考点下小题&#x2F;填空的主要出题方式。</li>
+</ul>
+<hr>
+<h3 id="18-交换二重积分次序（独立操作范式）"><a href="#18-交换二重积分次序（独立操作范式）" class="headerlink" title="18. 交换二重积分次序（独立操作范式）"></a>18. 交换二重积分次序（独立操作范式）</h3><p>$$\int_a^b \mathrm{d}x \int_{\varphi_1(x)}^{\varphi_2(x)} f ,\mathrm{d}y \xrightarrow{\text{画 } D \text{ 重定限}} \int_c^d \mathrm{d}y \int_{\psi_1(y)}^{\psi_2(y)} f ,\mathrm{d}x$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li><strong>范式三步</strong>：</li>
+</ul>
+<ol>
+<li>由内外层上下限<strong>画出积分区域 $D$</strong>；</li>
+<li>按目标次序（$X$ 型 $\leftrightarrow$ $Y$ 型）重新确定上下限，分块时按子区域分段写；</li>
+<li>改写积分。</li>
+</ol>
+<ul>
+<li><strong>典型触发</strong>：内层原函数积不出（$e^{-y^2}$、$\frac{\sin x}{x}$、$\frac{1}{\ln x}$）必须换序。</li>
+<li><strong>示例</strong>：$\int_0^1 \mathrm{d}x \int_x^1 e^{-y^2} ,\mathrm{d}y &#x3D; \int_0^1 \mathrm{d}y \int_0^y e^{-y^2} ,\mathrm{d}x &#x3D; \int_0^1 y e^{-y^2} ,\mathrm{d}y &#x3D; \frac{1}{2}(1 - e^{-1})$。</li>
+</ul>
+<hr>
+<h3 id="19-二重积分的应用（面积-质量-形心-平均值）"><a href="#19-二重积分的应用（面积-质量-形心-平均值）" class="headerlink" title="19. 二重积分的应用（面积&#x2F;质量&#x2F;形心&#x2F;平均值）"></a>19. 二重积分的应用（面积&#x2F;质量&#x2F;形心&#x2F;平均值）</h3><ul>
+<li><strong>面积</strong>：$S &#x3D; \iint_D \mathrm{d}\sigma$</li>
+<li><strong>质量</strong>：$M &#x3D; \iint_D \mu(x, y) ,\mathrm{d}\sigma \quad (\mu \text{ 为面密度})$</li>
+<li><strong>形心</strong>：$\bar{x} &#x3D; \frac{1}{S} \iint_D x ,\mathrm{d}\sigma, \quad \bar{y} &#x3D; \frac{1}{S} \iint_D y ,\mathrm{d}\sigma$</li>
+<li><strong>平均值</strong>：$\bar{f} &#x3D; \frac{1}{S} \iint_D f ,\mathrm{d}\sigma$</li>
+</ul>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li>$f \equiv 1$ 求面积是最常见入口；薄片质量取 $\mu$ 为面密度。</li>
+<li>形心（密度均匀时与质心重合）、区域上函数平均值偶有出现，数三相对弱化但属应用题套路。</li>
+<li>计算时优先用对称性&#x2F;轮换对称化简。</li>
+</ul>
+<hr>
+<h3 id="20-偏导-连续-可微关系的经典反例速记"><a href="#20-偏导-连续-可微关系的经典反例速记" class="headerlink" title="20. 偏导&#x2F;连续&#x2F;可微关系的经典反例速记"></a>20. 偏导&#x2F;连续&#x2F;可微关系的经典反例速记</h3><p>$$f(x, y) &#x3D; \begin{cases} \frac{xy}{x^2 + y^2}, &amp; (x, y) \neq (0, 0) \ 0, &amp; (x, y) &#x3D; (0, 0) \end{cases}$$</p>
+<p><strong>说明与总结：</strong></p>
+<ul>
+<li><strong>辨析题速记反例</strong>（均在原点考察）：</li>
+</ul>
+<ol>
+<li>上式 $f$ 在原点两偏导存在（$f_x(0, 0) &#x3D; f_y(0, 0) &#x3D; 0$），但<strong>不连续</strong>（沿 $y &#x3D; x$ 趋于 $\frac{1}{2}$、沿 $y &#x3D; 0$ 趋于 $0$）——说明“偏导存在 $\nRightarrow$ 连续”。</li>
+<li>$g &#x3D; \sqrt{x^2 + y^2}$ 在原点<strong>连续</strong>但两偏导<strong>不存在</strong>——说明“连续 $\nRightarrow$ 偏导存在”。</li>
+<li>偏导存在且函数连续仍未必可微，需用极限式验证。</li>
+</ol>
+<ul>
+<li>配合关系链卡使用，应对“给条件判可微&#x2F;连续”的选择题。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>http://example.com/2026/07/28/数学/高等数学/4多元函数微积分学/多元函数微积分学公式/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zhenhong</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年7月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/07/28/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/5%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%85%AC%E5%BC%8F/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/07/28/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/3%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86%E5%AD%A6/%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86%E5%AD%A6%E5%85%AC%E5%BC%8F/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

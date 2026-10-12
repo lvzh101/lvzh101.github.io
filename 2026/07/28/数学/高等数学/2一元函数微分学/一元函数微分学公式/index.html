@@ -1,0 +1,944 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zhenhong">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="第二章 一元函数微分学 1. 导数与微分的定义$$f’(x_0) &#x3D; \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x} &#x3D; \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0}$$ $$dy &#x3D; f’(x_0) \Delta x &#x3D; f’">
+<meta property="og:type" content="article">
+<meta property="og:title" content="personalBlog">
+<meta property="og:url" content="http://example.com/2026/07/28/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/2%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6/%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0%E5%BE%AE%E5%88%86%E5%AD%A6%E5%85%AC%E5%BC%8F/index.html">
+<meta property="og:site_name" content="personalBlog">
+<meta property="og:description" content="第二章 一元函数微分学 1. 导数与微分的定义$$f’(x_0) &#x3D; \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x} &#x3D; \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0}$$ $$dy &#x3D; f’(x_0) \Delta x &#x3D; f’">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-28T17:46:55.863Z">
+<meta property="article:modified_time" content="2026-08-25T06:55:45.624Z">
+<meta property="article:author" content="zhenhong">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>personalBlog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text=""></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-07-29 01:46" pubdate>
+          2026年7月29日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          29 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header"></h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="第二章-一元函数微分学"><a href="#第二章-一元函数微分学" class="headerlink" title="第二章 一元函数微分学"></a>第二章 一元函数微分学</h1><hr>
+<h2 id="1-导数与微分的定义"><a href="#1-导数与微分的定义" class="headerlink" title="1. 导数与微分的定义"></a>1. 导数与微分的定义</h2><p>$$<br>f’(x_0) &#x3D; \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x} &#x3D; \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0}<br>$$</p>
+<p>$$<br>dy &#x3D; f’(x_0) \Delta x &#x3D; f’(x_0) dx<br>$$</p>
+<blockquote>
+<p><strong>应用与性质</strong>：</p>
+<ul>
+<li>导数存在 $\iff$ 左导数 $f’<em>-(x_0)$ 与右导数 $f’</em>+(x_0)$ 都存在且相等（<strong>判分段点可导性必用此左右导数定义</strong>）。</li>
+<li>对一元函数：<strong>可微 $\iff$ 可导</strong>，此时 $\Delta y &#x3D; f’(x_0) \Delta x + o(\Delta x)$，$dy$ 是 $\Delta y$ 的线性主部。</li>
+<li><strong>可导 $\Rightarrow$ 连续</strong>，反之不成立（如 $\vert{}x\vert{}$ 在 $0$ 处连续不可导）。</li>
+<li><strong>【用定义求导 &#x2F; 凑定义】</strong>：遇形如 $\lim_{h \to 0} \frac{f(x_0 + ah) - f(x_0 + bh)}{h}$ 的极限，须配成标准差商（$\Delta x \to 0$ 的增量比），结果 $&#x3D; (a - b)f’(x_0)$。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="2-导数的几何-物理意义"><a href="#2-导数的几何-物理意义" class="headerlink" title="2. 导数的几何 &#x2F; 物理意义"></a>2. 导数的几何 &#x2F; 物理意义</h2><ul>
+<li><strong>切线斜率</strong>：$k &#x3D; f’(x_0)$</li>
+<li><strong>切线方程</strong>：$y - y_0 &#x3D; f’(x_0)(x - x_0)$</li>
+<li><strong>法线方程</strong>：$y - y_0 &#x3D; -\frac{1}{f’(x_0)}(x - x_0) \quad (f’(x_0) \neq 0)$</li>
+</ul>
+<blockquote>
+<p><strong>应用细节</strong>：</p>
+<ul>
+<li>$f’(x_0)$ 几何上为曲线在该点切线斜率；物理上为变化率（如 $v &#x3D; s’(t)$）。</li>
+<li>$f’(x_0) &#x3D; 0$ 时切线水平 $y &#x3D; y_0$、法线竖直 $x &#x3D; x_0$。</li>
+<li>$f’(x_0)$ 不存在但有竖直切线时，切线为 $x &#x3D; x_0$、法线为 $y &#x3D; y_0$。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="3-求导四则运算法则"><a href="#3-求导四则运算法则" class="headerlink" title="3. 求导四则运算法则"></a>3. 求导四则运算法则</h2><p>设 $u, v$ 在该点可导：</p>
+<ul>
+<li>$(u \pm v)’ &#x3D; u’ \pm v’$</li>
+<li>$(uv)’ &#x3D; u’v + uv’$</li>
+<li>$\left(\frac{u}{v}\right)’ &#x3D; \frac{u’v - uv’}{v^2} \quad (v \neq 0)$</li>
+<li>$(Cu)’ &#x3D; Cu’$</li>
+</ul>
+<blockquote>
+<p>微分形式同理：$d(uv) &#x3D; v du + u dv$ ， $d\left(\frac{u}{v}\right) &#x3D; \frac{v du - u dv}{v^2}$。</p>
+</blockquote>
+<hr>
+<h2 id="4-基本初等函数导数表"><a href="#4-基本初等函数导数表" class="headerlink" title="4. 基本初等函数导数表"></a>4. 基本初等函数导数表</h2><ul>
+<li>$(C)’ &#x3D; 0$</li>
+<li>$(x^\mu)’ &#x3D; \mu x^{\mu-1}$</li>
+<li>$(a^x)’ &#x3D; a^x \ln a \quad (a &gt; 0, a \neq 1)$</li>
+<li>$(e^x)’ &#x3D; e^x$</li>
+<li>$(\log_a x)’ &#x3D; \frac{1}{x \ln a} \quad (x &gt; 0)$</li>
+<li>$(\ln x)’ &#x3D; \frac{1}{x} \quad (x &gt; 0)$</li>
+<li>$(\sin x)’ &#x3D; \cos x$</li>
+<li>$(\cos x)’ &#x3D; -\sin x$</li>
+<li>$(\tan x)’ &#x3D; \sec^2 x$</li>
+<li>$(\cot x)’ &#x3D; -\csc^2 x$</li>
+<li>$(\sec x)’ &#x3D; \sec x \tan x$</li>
+<li>$(\csc x)’ &#x3D; -\csc x \cot x$</li>
+<li>$(\arcsin x)’ &#x3D; \frac{1}{\sqrt{1 - x^2}} \quad (-1 &lt; x &lt; 1)$</li>
+<li>$(\arccos x)’ &#x3D; -\frac{1}{\sqrt{1 - x^2}} \quad (-1 &lt; x &lt; 1)$</li>
+<li>$(\arctan x)’ &#x3D; \frac{1}{1 + x^2}$</li>
+<li>$(\text{arccot } x)’ &#x3D; -\frac{1}{1 + x^2}$</li>
+</ul>
+<blockquote>
+<p>$\arcsin x$ 与 $\arccos x$ 的导数公式在 $(-1, 1)$ 上成立（端点 $\pm 1$ 处导数不存在）。做题直接调用。</p>
+</blockquote>
+<hr>
+<h2 id="5-复合函数求导（链式法则）"><a href="#5-复合函数求导（链式法则）" class="headerlink" title="5. 复合函数求导（链式法则）"></a>5. 复合函数求导（链式法则）</h2><p>$$<br>{f[g(x)]}‘ &#x3D; f’[g(x)] \cdot g’(x) \quad \text{即} \quad \frac{dy}{dx} &#x3D; \frac{dy}{du} \cdot \frac{du}{dx}<br>$$</p>
+<blockquote>
+<p><strong>条件与性质</strong>：</p>
+<ul>
+<li>外层函数 $f$ 在 $u &#x3D; g(x)$ 处可导、内层 $g$ 在 $x$ 处可导。逐层求导、由外到内连乘。</li>
+<li><strong>【一阶微分形式不变性】</strong>：无论 $u$ 是自变量还是中间变量，$dy &#x3D; f’(u)du$ 形式恒成立。据此可不必逐层展开链式而直接对中间变量求微分（用于换元积分尤为方便）。</li>
+</ul>
+</blockquote>
+<h3 id="微分形式的理解"><a href="#微分形式的理解" class="headerlink" title="微分形式的理解"></a>微分形式的理解</h3><p>设 $y&#x3D;f(u)$，则无论 $u$ 是独立变量，还是由 $x$ 决定的中间变量，都可以先写成</p>
+<p>$$<br>dy&#x3D;f’(u),du<br>$$</p>
+<p>若 $u&#x3D;u(x)$，再结合 $du&#x3D;u’(x),dx$，就得到</p>
+<p>$$<br>dy&#x3D;f’(u)u’(x),dx,<br>\qquad<br>\frac{dy}{dx}&#x3D;f’(u)\frac{du}{dx}<br>$$</p>
+<p>这正是链式法则的微分写法。例如 $y&#x3D;\sin(x^2)$，令 $u&#x3D;x^2$，则</p>
+<p>$$<br>dy&#x3D;\cos u,du&#x3D;\cos(x^2)\cdot 2x,dx<br>$$</p>
+<p>这种写法在换元积分中尤其直接：</p>
+<p>$$<br>\int 2x\cos(x^2),dx<br>\overset{u&#x3D;x^2,;du&#x3D;2x,dx}{&#x3D;}<br>\int\cos u,du<br>&#x3D;\sin u+C<br>&#x3D;\sin(x^2)+C<br>$$</p>
+<p>这里的“形式不变”是指微分公式仍按当前函数的输入变量书写；实际计算时仍需满足相应的可导条件。</p>
+<hr>
+<h2 id="6-反函数求导法则"><a href="#6-反函数求导法则" class="headerlink" title="6. 反函数求导法则"></a>6. 反函数求导法则</h2><p>$$<br>[f^{-1}(y)]’ &#x3D; \frac{1}{f’(x)} \quad \text{即} \quad \frac{dx}{dy} &#x3D; \frac{1}{dy&#x2F;dx}<br>$$</p>
+<p>$$<br>\frac{d^2 x}{dy^2} &#x3D; -\frac{y’’}{(y’)^3}<br>$$</p>
+<blockquote>
+<p><strong>推导与应用</strong>：</p>
+<ul>
+<li>$y &#x3D; f(x)$ 在某邻域内单调可导且 $f’(x) \neq 0$，则反函数可导且 $[f^{-1}]’(y) &#x3D; 1&#x2F;f’(x)$。</li>
+<li>二阶公式由对 $\frac{1}{y’}$ 再对 $y$ 求导得到：</li>
+</ul>
+<p>$$<br>\frac{d}{dy}\left(\frac{1}{y’}\right) &#x3D; -\frac{y’’}{(y’)^2} \cdot \frac{dx}{dy} &#x3D; -\frac{y’’}{(y’)^3}<br>$$</p>
+</blockquote>
+<hr>
+<h2 id="7-隐函数与对数求导法"><a href="#7-隐函数与对数求导法" class="headerlink" title="7. 隐函数与对数求导法"></a>7. 隐函数与对数求导法</h2><ul>
+<li><strong>隐函数求导</strong>：对 $F(x, y) &#x3D; 0$ 两边对 $x$ 求导，把 $y$ 视作 $x$ 的函数。遇 $y$ 项乘 $y’$，再解出 $y’$。</li>
+<li><strong>对数求导法</strong>：</li>
+</ul>
+<p>$$<br>\ln\vert{}y\vert{} &#x3D; \ln\vert{}u(x)\vert{} \Rightarrow \frac{y’}{y} &#x3D; (\ln\vert{}u\vert{})’<br>$$</p>
+<blockquote>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>对数求导法适用于幂指函数 $y &#x3D; u(x)^{v(x)} \ (u(x) &gt; 0)$ 和多个因子连乘除；取绝对值可放宽对符号的限制，结果不含绝对值。</li>
+<li>幂指函数也可写 $u^v &#x3D; e^{v \ln u}$ 直接求导。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="8-参数方程求导"><a href="#8-参数方程求导" class="headerlink" title="8. 参数方程求导"></a>8. 参数方程求导</h2><p>$$<br>\begin{cases} x &#x3D; \varphi(t) \ y &#x3D; \psi(t) \end{cases} \Rightarrow \frac{dy}{dx} &#x3D; \frac{\psi’(t)}{\varphi’(t)}<br>$$</p>
+<p>$$<br>\frac{d^2 y}{dx^2} &#x3D; \frac{\psi’’(t)\varphi’(t) - \psi’(t)\varphi’’(t)}{[\varphi’(t)]^3}<br>$$</p>
+<blockquote>
+<p><strong>细节</strong>：要求 $\varphi’(t) \neq 0$。二阶导数 $&#x3D; \frac{\frac{d}{dt}\left(\frac{dy}{dx}\right)}{\frac{dx}{dt}}$，注意分母仍是 $\varphi’(t)$，不要漏掉。</p>
+</blockquote>
+<hr>
+<h2 id="9-高阶导数与莱布尼茨公式"><a href="#9-高阶导数与莱布尼茨公式" class="headerlink" title="9. 高阶导数与莱布尼茨公式"></a>9. 高阶导数与莱布尼茨公式</h2><p>$$<br>(uv)^{(n)} &#x3D; \sum_{k&#x3D;0}^n \binom{n}{k} u^{(n-k)} v^{(k)}<br>$$</p>
+<ul>
+<li>$(e^x)^{(n)} &#x3D; e^x$</li>
+<li>$(\sin x)^{(n)} &#x3D; \sin\left(x + \frac{n\pi}{2}\right)$</li>
+<li>$(\cos x)^{(n)} &#x3D; \cos\left(x + \frac{n\pi}{2}\right)$</li>
+<li>$[\ln(1 + x)]^{(n)} &#x3D; \frac{(-1)^{n-1}(n - 1)!}{(1 + x)^n} \quad (n \ge 1)$</li>
+<li>$\left(\frac{1}{x - a}\right)^{(n)} &#x3D; \frac{(-1)^n n!}{(x - a)^{n+1}}$</li>
+</ul>
+<blockquote>
+<p><strong>技巧与带系数版本</strong>（链式带出 $a^n$，易漏）：</p>
+<ul>
+<li>莱布尼茨公式常配多项式 $\times$ 指数&#x2F;三角（多项式高于其次数的项导数为 $0$）。有理分式先拆部分分式再套公式。</li>
+<li>$[\sin(ax + b)]^{(n)} &#x3D; a^n \sin\left(ax + b + \frac{n\pi}{2}\right)$</li>
+<li>$[\cos(ax + b)]^{(n)} &#x3D; a^n \cos\left(ax + b + \frac{n\pi}{2}\right)$</li>
+<li>$\left(\frac{1}{ax + b}\right)^{(n)} &#x3D; \frac{(-1)^n n! a^n}{(ax + b)^{n+1}}$</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="10-一阶微分形式不变性"><a href="#10-一阶微分形式不变性" class="headerlink" title="10. 一阶微分形式不变性"></a>10. 一阶微分形式不变性</h2><p>$$<br>dy &#x3D; f’(u) du<br>$$</p>
+<blockquote>
+<p>无论 $u$ 是自变量还是中间变量，微分式 $dy &#x3D; f’(u) du$ 形式不变。用于复合函数求微分、换元积分，可避免逐层链式展开。（本质是链式法则的微分写法）</p>
+</blockquote>
+<hr>
+<h2 id="11-费马引理与罗尔定理"><a href="#11-费马引理与罗尔定理" class="headerlink" title="11. 费马引理与罗尔定理"></a>11. 费马引理与罗尔定理</h2><ul>
+<li><strong>费马引理</strong>：$x_0$ 为内点、取极值，若 $f’(x_0)$ 存在，则 $f’(x_0) &#x3D; 0$。</li>
+<li><strong>罗尔定理</strong>：若 $f \in C[a, b]$，在 $(a, b)$ 内可导，且 $f(a) &#x3D; f(b)$，则：</li>
+</ul>
+<p>$$<br>\exists \xi \in (a, b), \quad f’(\xi) &#x3D; 0<br>$$</p>
+<blockquote>
+<p>费马引理要求 $x_0$ 为<strong>内点</strong>（在 $x_0$ 的某邻域内有定义且取极值），端点取极值不适用。罗尔定理结论给出导函数零点，常用于证明根的存在性、构造辅助函数。</p>
+</blockquote>
+<hr>
+<h2 id="12-拉格朗日中值定理"><a href="#12-拉格朗日中值定理" class="headerlink" title="12. 拉格朗日中值定理"></a>12. 拉格朗日中值定理</h2><p>$$<br>f(b) - f(a) &#x3D; f’(\xi)(b - a), \quad \xi \in (a, b)<br>$$</p>
+<ul>
+<li><strong>推论</strong>：若在区间上 $f’(x) \equiv 0$，则 $f(x)$ 为常数。</li>
+</ul>
+<blockquote>
+<p><strong>条件与应用</strong>：</p>
+<ul>
+<li>条件：$f \in C[a, b]$，在 $(a, b)$ 内可导。</li>
+<li>是罗尔定理 $f(a) &#x3D; f(b)$ 的推广，核心工具：估值、证不等式、证恒等式。</li>
+<li>常用变形：$\xi &#x3D; a + \theta(b - a) \quad (\theta \in (0, 1))$。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="13-与泰勒公式（拉格朗日余项）"><a href="#13-与泰勒公式（拉格朗日余项）" class="headerlink" title="13.   与泰勒公式（拉格朗日余项）"></a>13.   与泰勒公式（拉格朗日余项）</h2><ul>
+<li><strong>柯西中值定理</strong>：</li>
+</ul>
+<p>$$<br>\frac{f(b) - f(a)}{g(b) - g(a)} &#x3D; \frac{f’(\xi)}{g’(\xi)} \quad (\xi \in (a, b))<br>$$</p>
+<ul>
+<li><strong>泰勒公式（拉格朗日余项）</strong>：</li>
+</ul>
+<p>$$<br>f(x) &#x3D; \sum_{k&#x3D;0}^n \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n+1)}(\xi)}{(n + 1)!}(x - x_0)^{n+1}<br>$$</p>
+<blockquote>
+<p><strong>条件</strong>：</p>
+<ul>
+<li>柯西定理：$f, g$ 在 $[a, b]$ 连续、$(a, b)$ 可导且 $g’(x) \neq 0$。</li>
+<li>泰勒公式要求 $f$ 在含 $x_0$ 的区间上有 $n+1$ 阶导数，$\xi$ 介于 $x_0$ 与 $x$ 之间；$x_0 &#x3D; 0$ 即麦克劳林公式。求极限优先用佩亚诺余项。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="14-洛必达法则"><a href="#14-洛必达法则" class="headerlink" title="14. 洛必达法则"></a>14. 洛必达法则</h2><p>$$<br>\lim_{x \to x_0} \frac{f(x)}{g(x)} &#x3D; \lim_{x \to x_0} \frac{f’(x)}{g’(x)}<br>$$</p>
+<blockquote>
+<p>仅适用于 $\frac{0}{0}$ 或 $\frac{\infty}{\infty}$ 型（$x \to x_0$ 或 $x \to \infty$ 均可）；要求去心邻域内 $f, g$ 可导且 $g’(x) \neq 0$，且右端极限存在或为 $\infty$。<br>$0 \cdot \infty, \infty - \infty, 1^\infty, 0^0, \infty^0$ 须先化成基本型。右端极限不存在（且非 $\infty$）时法则失效。<br><strong>实战策略</strong>：先用等价无穷小 &#x2F; 泰勒展开化简再洛必达，可大幅减少求导层数。</p>
+</blockquote>
+<hr>
+<h2 id="15-单调性判别"><a href="#15-单调性判别" class="headerlink" title="15. 单调性判别"></a>15. 单调性判别</h2><ul>
+<li>$f’(x) &gt; 0 \Rightarrow f$ 单调增</li>
+<li>$f’(x) &lt; 0 \Rightarrow f$ 单调减</li>
+</ul>
+<blockquote>
+<p>$f$ 在 $[a, b]$ 连续、$(a, b)$ 可导。$f’(x) \ge 0$ 且使 $f’(x) &#x3D; 0$ 的点不构成区间（如仅有限个）仍严格单调增。用 $f’$ 的零点和不可导点划分区间逐段判号。证不等式常构造 $F(x) &#x3D; f(x) - g(x)$ 看单调性。</p>
+</blockquote>
+<hr>
+<h2 id="16-极值的判别"><a href="#16-极值的判别" class="headerlink" title="16. 极值的判别"></a>16. 极值的判别</h2><ul>
+<li><strong>一阶判别</strong>：$f’(x_0) &#x3D; 0$ 或不存在，且 $f’$ 过 $x_0$ 变号（正变负为极大、负变正为极小）。</li>
+<li><strong>二阶判别</strong>：$f’(x_0) &#x3D; 0$ 且 $f’’(x_0) &lt; 0 \Rightarrow$ 极大；$f’’(x_0) &gt; 0 \Rightarrow$ 极小。</li>
+</ul>
+<blockquote>
+<p>驻点（$f’ &#x3D; 0$）和不可导点是极值的可能点（统称临界点）。二阶判别要求 $f’’!(x_0) \neq 0$；若 $f’’!(x_0) &#x3D; 0$ 则失效，改用一阶或更高阶导数。</p>
+</blockquote>
+<hr>
+<h2 id="17-凹凸性与拐点"><a href="#17-凹凸性与拐点" class="headerlink" title="17. 凹凸性与拐点"></a>17. 凹凸性与拐点</h2><ul>
+<li>$f’’(x) &gt; 0 \Rightarrow$ 凹（下凸 $\cup$）</li>
+<li>$f’’(x) &lt; 0 \Rightarrow$ 凸（上凸 $\cap$）</li>
+<li><strong>拐点</strong>：$f’’(x_0) &#x3D; 0$ 或不存在，且两侧 $f’’$ 变号。</li>
+</ul>
+<blockquote>
+<p>凹凸性由 $f’’$ 符号决定（国内教材“凹”指 $\cup$ 即 $y’’ &gt; 0$）。拐点是凹凸分界点，必为 $(x_0, f(x_0))$ 含纵坐标的“点”，且 $f$ 在 $x_0$ 处须连续。$f’’(x_0) &#x3D; 0$ 不一定是拐点（如 $x^4$ 在 $0$ 处），须验证两侧变号。</p>
+</blockquote>
+<hr>
+<h2 id="18-渐近线"><a href="#18-渐近线" class="headerlink" title="18. 渐近线"></a>18. 渐近线</h2><ul>
+<li><strong>水平渐近线</strong>：$\lim_{x \to +\infty} f(x) &#x3D; A$ 或 $\lim_{x \to -\infty} f(x) &#x3D; A \Rightarrow y &#x3D; A$</li>
+<li><strong>铅直渐近线</strong>：$\lim_{x \to x_0} f(x) &#x3D; \infty \Rightarrow x &#x3D; x_0$</li>
+<li><strong>斜渐近线</strong>：$k &#x3D; \lim_{x \to \pm\infty} \frac{f(x)}{x}, \quad b &#x3D; \lim_{x \to \pm\infty} [f(x) - kx] \Rightarrow y &#x3D; kx + b$</li>
+</ul>
+<blockquote>
+<p><strong>判别流程与细节</strong>：</p>
+<ol>
+<li>$x \to +\infty$ 与 $x \to -\infty$ 必须分别考查，两侧可能不同。</li>
+<li>斜渐近线先验 $k$ 为非零有限值再算 $b$；若 $k &#x3D; 0$ 且 $b$ 有限即化为水平渐近线，故同一方向上水平与斜渐近线不并存。</li>
+<li>铅直渐近线对每个间断点与定义域开端点逐一验左右极限是否为 $\infty$。</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id="19-最大值最小值"><a href="#19-最大值最小值" class="headerlink" title="19. 最大值最小值"></a>19. 最大值最小值</h2><p>$$<br>\max &#x2F; \min &#x3D; { f(\text{临界点}), f(a), f(b) } \quad \text{中比较取得}<br>$$</p>
+<blockquote>
+<p>闭区间 $[a, b]$ 上连续函数必取到最值，候选点为：驻点、不可导点、端点。开区间或实际问题中若仅一个极值点，则该极大（小）值即为最大（小）值。</p>
+</blockquote>
+<hr>
+<h2 id="20-弧微分与曲率（数一-数二）"><a href="#20-弧微分与曲率（数一-数二）" class="headerlink" title="20. 弧微分与曲率（数一 &#x2F; 数二）"></a>20. 弧微分与曲率（数一 &#x2F; 数二）</h2><ul>
+<li><strong>弧微分</strong>：</li>
+</ul>
+<p>$$<br>ds &#x3D; \sqrt{1 + y’^2} , dx &#x3D; \sqrt{\varphi’^2(t) + \psi’^2(t)} , dt<br>$$</p>
+<ul>
+<li><strong>曲率与曲率半径</strong>：</li>
+</ul>
+<p>$$<br>K &#x3D; \frac{\vert{}y’’\vert{}}{(1 + y’^2)^{3&#x2F;2}}, \quad R &#x3D; \frac{1}{K}<br>$$</p>
+<blockquote>
+<p><strong>注</strong>：弧微分与曲率仅数一、数二要求，数三不考。弧微分取 $ds &gt; 0$（弧长随参数增大方向）。曲率 $K$ 刻画弯曲程度：直线 $K &#x3D; 0$，半径 $a$ 的圆 $K &#x3D; 1&#x2F;a$。曲率圆（密切圆）圆心在凹侧法线上，与曲线在该点二阶相切。</p>
+</blockquote>
+<hr>
+<h2 id="21-常用泰勒-麦克劳林展开式（佩亚诺余项）"><a href="#21-常用泰勒-麦克劳林展开式（佩亚诺余项）" class="headerlink" title="21. 常用泰勒 &#x2F; 麦克劳林展开式（佩亚诺余项）"></a>21. 常用泰勒 &#x2F; 麦克劳林展开式（佩亚诺余项）</h2><p>$$<br>f(x) &#x3D; \sum_{k&#x3D;0}^n \frac{f^{(k)}(0)}{k!} x^k + o(x^n)<br>$$</p>
+<ul>
+<li>$e^x &#x3D; 1 + x + \frac{x^2}{2!} + \dots + \frac{x^n}{n!} + o(x^n)$</li>
+<li>$\sin x &#x3D; x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots + (-1)^m \frac{x^{2m+1}}{(2m+1)!} + o(x^{2m+2})$</li>
+<li>$\cos x &#x3D; 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \dots + (-1)^m \frac{x^{2m}}{(2m)!} + o(x^{2m+1})$</li>
+<li>$\ln(1 + x) &#x3D; x - \frac{x^2}{2} + \frac{x^3}{3} - \dots + (-1)^{n-1} \frac{x^n}{n} + o(x^n)$</li>
+<li>$(1 + x)^\alpha &#x3D; 1 + \alpha x + \frac{\alpha(\alpha - 1)}{2!} x^2 + \dots + \frac{\alpha(\alpha - 1)\dots(\alpha - n + 1)}{n!} x^n + o(x^n)$</li>
+<li>$\frac{1}{1 - x} &#x3D; 1 + x + x^2 + \dots + x^n + o(x^n)$</li>
+<li>$\frac{1}{1 + x} &#x3D; 1 - x + x^2 - \dots + (-1)^n x^n + o(x^n)$</li>
+<li>$\tan x &#x3D; x + \frac{1}{3}x^3 + o(x^3)$</li>
+<li>$\arcsin x &#x3D; x + \frac{1}{6}x^3 + o(x^3)$</li>
+<li>$\arctan x &#x3D; x - \frac{1}{3}x^3 + o(x^3)$</li>
+</ul>
+<blockquote>
+<p><strong>使用原则</strong>：<br>佩亚诺余项 $o(x^n)$ 只需 $f$ 在 $0$ 处 $n$ 阶可导，<strong>求极限优先用佩亚诺</strong>（无需估余项）。展开阶数原则：分式上下消去同阶后看保留到几阶——一般取到与分母最低次幂同阶即可（“上下同阶”）。</p>
+</blockquote>
+<hr>
+<h2 id="22-可导·可微·连续逻辑链速记（一元）"><a href="#22-可导·可微·连续逻辑链速记（一元）" class="headerlink" title="22. 可导·可微·连续逻辑链速记（一元）"></a>22. 可导·可微·连续逻辑链速记（一元）</h2><p>$$<br>\text{可导} \iff \text{可微} \implies \text{连续} \implies \text{极限存在（去心邻域）}<br>$$</p>
+<blockquote>
+<p><strong>陷阱提醒</strong>：<br>一元函数中可导与可微完全等价（$\Delta y &#x3D; f’(x_0)\Delta x + o(\Delta x)$）；可导（可微）$\Rightarrow$ 连续，但连续不一定可导（如 $\vert{}x\vert{}$ 在 $0$ 处），连续不一定可微。连续 $\Rightarrow$ 该点极限存在且等于函数值；极限存在不一定连续（可去间断）。<strong>反向每一步都不成立</strong>，这是选择题 &#x2F; 概念题的高频考点。</p>
+</blockquote>
+<hr>
+<h2 id="23-用导数证不等式：方法选择"><a href="#23-用导数证不等式：方法选择" class="headerlink" title="23. 用导数证不等式：方法选择"></a>23. 用导数证不等式：方法选择</h2><ol>
+<li><strong>单调性法</strong>：构造 $F(x) &#x3D; f(x) - g(x)$，判 $F’$ 符号。</li>
+<li><strong>最值法</strong>：求 $F(x)$ 在区间最小（大）值与 $0$ 比较。</li>
+<li><strong>中值定理法</strong>：凑 $f(b) - f(a) &#x3D; f’(\xi)(b - a)$ 估 $f’(\xi)$。</li>
+<li><strong>泰勒展开法</strong>：在某点展开，用拉格朗日余项定号。</li>
+</ol>
+<blockquote>
+<p><strong>选择经验</strong>：</p>
+<ul>
+<li>含两端点之差 &#x2F; 中间值 $\xi \implies$ 用中值定理；</li>
+<li>给定二阶以上导数符号 &#x2F; 带高阶项 $\implies$ 用泰勒（拉格朗日余项）；</li>
+<li>一般作差 $\implies$ 优先构造 $F(x)$ 看单调性，若 $F’$ 符号不定再看 $F$ 的最值；端点处常需补验 $F(a)$ 或 $\lim$ 的符号。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="24-切线与法线特例及参数-极坐标（数一-数二）"><a href="#24-切线与法线特例及参数-极坐标（数一-数二）" class="headerlink" title="24. 切线与法线特例及参数 &#x2F; 极坐标（数一 &#x2F; 数二）"></a>24. 切线与法线特例及参数 &#x2F; 极坐标（数一 &#x2F; 数二）</h2><ul>
+<li><strong>水平切线</strong>：$f’(x_0) &#x3D; 0 \Rightarrow y &#x3D; y_0$</li>
+<li><strong>竖直切线</strong>：$f’(x_0) &#x3D; \infty$（尖点 &#x2F; $y’ \to \infty$）$\Rightarrow x &#x3D; x_0$，法线 $y &#x3D; y_0$</li>
+<li><strong>参数式</strong>：$k &#x3D; \frac{\psi’(t_0)}{\varphi’(t_0)}$</li>
+<li><strong>极坐标 $r &#x3D; r(\theta)$</strong>：</li>
+</ul>
+<p>$$<br>\begin{cases} x &#x3D; r(\theta) \cos \theta \ y &#x3D; r(\theta) \sin \theta \end{cases} \Rightarrow k &#x3D; \frac{y’(\theta)}{x’(\theta)}<br>$$</p>
+<blockquote>
+<p><strong>说明</strong>：<br>竖直切线出现在 $f’ \to \infty$ 处（如 $y &#x3D; \sqrt[3]{x}$ 在 $0$ 处），此时切线 $x &#x3D; x_0$、法线 $y &#x3D; y_0$，与水平切线情形对偶。极坐标切线求法：先化为以 $\theta$ 为参数的参数方程，再求斜率 $k &#x3D; y’(\theta)&#x2F;x’(\theta)$（极坐标切线为数一、数二内容，数三仅考直角坐标）。</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div></div>
+      <div>http://example.com/2026/07/28/数学/高等数学/2一元函数微分学/一元函数微分学公式/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zhenhong</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年7月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/07/28/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/3%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86%E5%AD%A6/%E4%B8%80%E5%85%83%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86%E5%AD%A6%E5%85%AC%E5%BC%8F/" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/07/26/%E6%95%B0%E5%AD%A6/%E9%9B%B6%E5%9F%BA%E7%A1%80/%E6%95%B0%E5%88%97%E9%80%92%E6%8E%A8%E9%A2%98%E5%B8%B8%E8%A7%81%E5%85%AD%E7%A7%8D%E9%80%9A%E9%A1%B9%E5%A5%97%E8%B7%AF/" title="数列递推题常见六种通项套路">
+                        <span class="hidden-mobile">数列递推题常见六种通项套路</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

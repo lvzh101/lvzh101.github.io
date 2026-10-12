@@ -1,0 +1,951 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="zhenhong">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="第一章 函数、极限、连续 1. 无穷小量的比较与等价无穷小$$\lim \frac{\beta}{\alpha} &#x3D;  \begin{cases}  0 &amp; \beta \text{ 是 } \alpha \text{ 的高阶无穷小} \  \infty &amp; \beta \text{ 是 } \alpha \text{ 的低阶无穷小} \  c \neq 0 &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数、极限与连续">
+<meta property="og:url" content="http://example.com/2026/07/28/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1%E5%87%BD%E6%95%B0%E3%80%81%E6%9E%81%E9%99%90%E3%80%81%E8%BF%9E%E7%BB%AD/%E5%87%BD%E6%95%B0%E3%80%81%E6%9E%81%E9%99%90%E3%80%81%E8%BF%9E%E7%BB%AD%E5%85%AC%E5%BC%8F/index.html">
+<meta property="og:site_name" content="personalBlog">
+<meta property="og:description" content="第一章 函数、极限、连续 1. 无穷小量的比较与等价无穷小$$\lim \frac{\beta}{\alpha} &#x3D;  \begin{cases}  0 &amp; \beta \text{ 是 } \alpha \text{ 的高阶无穷小} \  \infty &amp; \beta \text{ 是 } \alpha \text{ 的低阶无穷小} \  c \neq 0 &amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-29T02:00:00.000Z">
+<meta property="article:modified_time" content="2026-08-26T10:22:56.942Z">
+<meta property="article:author" content="zhenhong">
+<meta property="article:tag" content="公式整理">
+<meta property="article:tag" content="函数">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="极限">
+<meta property="article:tag" content="连续">
+<meta property="article:tag" content="高等数学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>函数、极限与连续 - personalBlog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="函数、极限与连续"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-07-29 10:00" pubdate>
+          2026年7月29日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          29 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">函数、极限与连续</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="第一章-函数、极限、连续"><a href="#第一章-函数、极限、连续" class="headerlink" title="第一章 函数、极限、连续"></a>第一章 函数、极限、连续</h1><hr>
+<h2 id="1-无穷小量的比较与等价无穷小"><a href="#1-无穷小量的比较与等价无穷小" class="headerlink" title="1. 无穷小量的比较与等价无穷小"></a>1. 无穷小量的比较与等价无穷小</h2><p>$$<br>\lim \frac{\beta}{\alpha} &#x3D;  \begin{cases}  0 &amp; \beta \text{ 是 } \alpha \text{ 的高阶无穷小} \  \infty &amp; \beta \text{ 是 } \alpha \text{ 的低阶无穷小} \  c \neq 0 &amp; \text{同阶无穷小} \  1 &amp; \beta \sim \alpha \text{（等价无穷小）}  \end{cases}<br>$$</p>
+<p>$\alpha, \beta$ 在同一极限过程中均为无穷小，比较时设 $\alpha \neq 0$。等价无穷小是同阶（$c &#x3D; 1$）的特例，定义：$\lim \frac{\beta}{\alpha} &#x3D; 1$。</p>
+<p>称 $\beta$ 是 $\alpha$ 的 $k$ 阶无穷小指：</p>
+<p>$$<br>\lim \frac{\beta}{\alpha^k} &#x3D; c \neq 0 \quad (k &gt; 0)<br>$$</p>
+<hr>
+<h2 id="2-常用等价无穷小-x-to-0"><a href="#2-常用等价无穷小-x-to-0" class="headerlink" title="2. 常用等价无穷小 ($x \to 0$)"></a>2. 常用等价无穷小 ($x \to 0$)</h2><ul>
+<li>$\sin x \sim x$</li>
+<li>$\tan x \sim x$</li>
+<li>$\arcsin x \sim x$</li>
+<li>$\arctan x \sim x$</li>
+<li>$1 - \cos x \sim \frac{1}{2}x^2$</li>
+<li>$e^x - 1 \sim x$</li>
+<li>$\ln(1 + x) \sim x$</li>
+<li>$a^x - 1 \sim x \ln a$</li>
+<li>$(1 + x)^\alpha - 1 \sim \alpha x$</li>
+<li>$x - \sin x \sim \frac{1}{6}x^3$</li>
+<li>$\tan x - \sin x \sim \frac{1}{2}x^3$</li>
+<li>$\tan x - x \sim \frac{1}{3}x^3$</li>
+<li>$\arcsin x - x \sim \frac{1}{6}x^3$</li>
+</ul>
+<p>均在 $x \to 0$ 下成立（$a &gt; 0, a \neq 1$；$\alpha$ 为任意实常数），可整体替换：$x$ 换成同过程下趋于 $0$ 的表达式 $\square$ 即得 $\sin \square \sim \square$ 等。</p>
+<blockquote>
+<p><strong>【替换判据】</strong><br>仅乘除因子可直接换；加减项中，若被加减两项最低阶相同则不能各自替换（会消掉主部、丢失主要部分），须展开到更高阶或改用泰勒。</p>
+<ul>
+<li><strong>【正例】</strong> $\lim_{x \to 0} \frac{\sin 3x}{\ln(1 + 2x)} &#x3D; \lim \frac{3x}{2x} &#x3D; \frac{3}{2}$ （乘除因子，可换）</li>
+<li><strong>【反例】</strong> $\lim_{x \to 0} \frac{\tan x - \sin x}{x^3}$，若用 $\tan x \sim x, \sin x \sim x$ 直接得 $\frac{x-x}{x^3} &#x3D; 0$ 是错的；正确做法保留三阶：$\tan x - \sin x \sim \frac{1}{2}x^3$，故极限 $&#x3D; \frac{1}{2}$。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="3-两个重要极限"><a href="#3-两个重要极限" class="headerlink" title="3. 两个重要极限"></a>3. 两个重要极限</h2><ol>
+<li>$\lim_{x \to 0} \frac{\sin x}{x} &#x3D; 1$</li>
+</ol>
+<ul>
+<li>第一个是 $0&#x2F;0$ 型，推广式 $\lim \frac{\sin \square}{\square} &#x3D; 1 \quad (\square \to 0)$</li>
+</ul>
+<ol start="2">
+<li>$\lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x &#x3D; e &#x3D; \lim_{t \to 0} (1 + t)^{1&#x2F;t}$</li>
+</ol>
+<ul>
+<li>第二个是 $1^\infty$ 型，凑成 $\lim \left(1 + \frac{1}{\square}\right)^\square &#x3D; e \quad (\square \to \infty)$ 或 $\lim (1 + \square)^{1&#x2F;\square} &#x3D; e \quad (\square \to 0)$</li>
+</ul>
+<blockquote>
+<p><strong>$1^\infty$ 型通法</strong>：当 $u \to 1, v \to \infty$ 时，$\lim u^v &#x3D; e^{\lim v(u - 1)}$。一切幂指型先用 $u^v &#x3D; e^{v \ln u}$ 化为指数（见“幂指函数求极限通法”）。</p>
+</blockquote>
+<hr>
+<h2 id="4-极限的四则运算法则"><a href="#4-极限的四则运算法则" class="headerlink" title="4. 极限的四则运算法则"></a>4. 极限的四则运算法则</h2><p>设 $\lim u, \lim v$ 均存在且有限：</p>
+<ul>
+<li>$\lim(u \pm v) &#x3D; \lim u \pm \lim v$</li>
+<li>$\lim(uv) &#x3D; \lim u \cdot \lim v$</li>
+<li>$\lim \frac{u}{v} &#x3D; \frac{\lim u}{\lim v} \quad (\lim v \neq 0)$</li>
+<li>$\lim(cu) &#x3D; c \lim u$</li>
+</ul>
+<blockquote>
+<p><strong>前提</strong>：$\lim u, \lim v$ 均存在（有限）方可拆分；含 $\infty$ 时不能直接套用。若出现 $\infty - \infty, 0 \cdot \infty, \frac{0}{0}, \frac{\infty}{\infty}$ 等未定式必须先化简（通分、提主部、等价无穷小、洛必达等）再用。法则可推广到有限个函数，但对无穷多项之和&#x2F;积不成立（这类用夹逼或定积分定义法）。</p>
+</blockquote>
+<hr>
+<h2 id="5-单调有界准则与夹逼准则"><a href="#5-单调有界准则与夹逼准则" class="headerlink" title="5. 单调有界准则与夹逼准则"></a>5. 单调有界准则与夹逼准则</h2><ul>
+<li><strong>单调有界准则</strong>：${x_n}$ 单调递增有上界（或递减有下界）$\Rightarrow \lim_{n \to \infty} x_n$ 存在</li>
+<li><strong>夹逼准则</strong>：$g(x) \le f(x) \le h(x)$ 且 $\lim g &#x3D; \lim h &#x3D; A \Rightarrow \lim f &#x3D; A$</li>
+</ul>
+<blockquote>
+<p><strong>应用细节</strong>：</p>
+<ul>
+<li>单调有界准则常用于递推数列 $x_{n+1} &#x3D; f(x_n)$：先证有界再证单调，极限 $A$ 由 $A &#x3D; f(A)$ 解出（须先证极限存在，方可对递推式两边令 $n \to \infty$）。</li>
+<li>夹逼准则要求两端在同一过程下趋于同一极限 $A$，常用于 $n$ 项和式放缩（如 $\sum_{k&#x3D;1}^n \frac{n}{n^2 + k}$ 用 $\frac{n^2}{n^2 + n} \le \cdot \le \frac{n^2}{n^2 + 1}$ 夹）。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="6-极限存在的充要条件（左右极限）"><a href="#6-极限存在的充要条件（左右极限）" class="headerlink" title="6. 极限存在的充要条件（左右极限）"></a>6. 极限存在的充要条件（左右极限）</h2><p>$$<br>\lim_{x \to x_0} f(x) &#x3D; A \iff f(x_0^-) &#x3D; f(x_0^+) &#x3D; A<br>$$</p>
+<blockquote>
+<p><strong>应用细节</strong>：</p>
+<ul>
+<li>当 $x \to x_0$ 处函数有不同表达式（分段点）、含 $\vert{}x\vert{}$、或 $x \to \infty$ 区分 $+\infty &#x2F; -\infty$（如 $\arctan x, e^{1&#x2F;x}, \frac{1}{1 + a^{1&#x2F;x}}$）时，必须分别考察左右极限并验证相等。</li>
+<li>$f(x_0^-), f(x_0^+)$ 分别记左、右极限，与 $f(x_0)$ 是否有定义无关。</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="7-无穷小量与无穷大量的关系及性质"><a href="#7-无穷小量与无穷大量的关系及性质" class="headerlink" title="7. 无穷小量与无穷大量的关系及性质"></a>7. 无穷小量与无穷大量的关系及性质</h2><ul>
+<li>$\lim f &#x3D; \infty \iff \lim \frac{1}{f} &#x3D; 0$</li>
+<li>$(\lim f &#x3D; 0, f \neq 0) \iff \lim \frac{1}{f} &#x3D; \infty$</li>
+</ul>
+<blockquote>
+<p>在同一极限过程下，非零无穷小的倒数为无穷大，无穷大的倒数为无穷小。<br><strong>性质</strong>：</p>
+<ul>
+<li>有限个无穷小之和&#x2F;积仍为无穷小。</li>
+<li>有界量 $\times$ 无穷小 $&#x3D;$ 无穷小（如 $\lim_{x \to 0} x \sin \frac{1}{x} &#x3D; 0$）。</li>
+<li>注意：“无穷大量”是极限不存在的一种特定情形（趋于 $\infty$），不是普通极限值。</li>
+</ul>
+<p><strong>【相关桥梁】</strong>：$\lim f(x) &#x3D; A$（$A$ 有限）$\iff f(x) &#x3D; A + \alpha(x)$ 且 $\lim \alpha(x) &#x3D; 0$，是无穷小理论与极限四则运算证明的纽带。</p>
+</blockquote>
+<hr>
+<h2 id="8-无穷小与极限的关系定理"><a href="#8-无穷小与极限的关系定理" class="headerlink" title="8. 无穷小与极限的关系定理"></a>8. 无穷小与极限的关系定理</h2><p>$$<br>\lim f(x) &#x3D; A \iff f(x) &#x3D; A + \alpha(x), \quad \text{其中 } \lim \alpha(x) &#x3D; 0<br>$$</p>
+<blockquote>
+<p>$\lim f(x) &#x3D; A$（$A$ 为有限值）当且仅当 $f$ 可写成常数 $A$ 与一个同过程无穷小 $\alpha(x)$ 之和，是无穷小理论与极限四则运算证明的桥梁。计算&#x2F;选择题一般不直接调用，主要用于理论证明（如证四则运算法则、证 $\lim f &#x3D; A$）。</p>
+</blockquote>
+<hr>
+<h2 id="9-函数连续的定义"><a href="#9-函数连续的定义" class="headerlink" title="9. 函数连续的定义"></a>9. 函数连续的定义</h2><p>$$<br>\lim_{x \to x_0} f(x) &#x3D; f(x_0) \iff \lim_{\Delta x \to 0} \Delta y &#x3D; 0 \iff f(x_0^-) &#x3D; f(x_0^+) &#x3D; f(x_0)<br>$$</p>
+<blockquote>
+<p>$f$ 在 $x_0$ 连续需三者同时成立：$f(x_0)$ 有定义、$\lim_{x \to x_0} f(x)$ 存在、二者相等。<br>$\Delta y &#x3D; f(x_0 + \Delta x) - f(x_0)$。区间内连续即每点连续（端点取相应单侧连续）。</p>
+</blockquote>
+<hr>
+<h2 id="10-间断点的分类"><a href="#10-间断点的分类" class="headerlink" title="10. 间断点的分类"></a>10. 间断点的分类</h2><ul>
+<li><strong>第一类间断点</strong>（左右极限均存在）：</li>
+<li>$f(x_0^-) &#x3D; f(x_0^+) \Rightarrow$ <strong>可去间断点</strong></li>
+<li>$f(x_0^-) \neq f(x_0^+) \Rightarrow$ <strong>跳跃间断点</strong></li>
+<li><strong>第二类间断点</strong>（左右极限至少一个不存在）：</li>
+<li><strong>无穷间断点</strong> &#x2F; <strong>振荡间断点</strong></li>
+</ul>
+<blockquote>
+<p>判别先求 $f(x_0^-), f(x_0^+)$。可去型可补充或改变 $x_0$ 处定义使之连续；如 $\frac{1}{x}$ 在 $x &#x3D; 0$ 为无穷间断点，$\sin \frac{1}{x}$ 在 $x &#x3D; 0$ 为振荡间断点。注意无定义点也需按左右极限分类。</p>
+</blockquote>
+<hr>
+<h2 id="11-初等函数的连续性"><a href="#11-初等函数的连续性" class="headerlink" title="11. 初等函数的连续性"></a>11. 初等函数的连续性</h2><ul>
+<li>基本初等函数在其定义域内连续；初等函数在其定义区间内连续。</li>
+</ul>
+<blockquote>
+<p>由连续函数的四则运算、复合运算保连续性导出。求初等函数在其定义区间内一点的极限可直接代入：$\lim_{x \to x_0} f(x) &#x3D; f(x_0)$。</p>
+</blockquote>
+<hr>
+<h2 id="12-复合函数求极限（变量代换）"><a href="#12-复合函数求极限（变量代换）" class="headerlink" title="12. 复合函数求极限（变量代换）"></a>12. 复合函数求极限（变量代换）</h2><p>$$<br>\lim_{x \to x_0} f(g(x)) &#x3D; f\left(\lim_{x \to x_0} g(x)\right) &#x3D; f(u_0)<br>$$</p>
+<blockquote>
+<p><strong>条件</strong>：$\lim_{x \to x_0} g(x) &#x3D; u_0$ 且 $f$ 在 $u_0$ 处连续（或在 $u_0$ 某去心邻域内 $g(x) \neq u_0$ 且 $\lim_{u \to u_0} f(u)$ 存在）。<br>是换元求极限、$u^v &#x3D; e^{v \ln u}$ 处理幂指函数的依据。</p>
+</blockquote>
+<hr>
+<h2 id="13-闭区间上连续函数的性质"><a href="#13-闭区间上连续函数的性质" class="headerlink" title="13. 闭区间上连续函数的性质"></a>13. 闭区间上连续函数的性质</h2><p>设 $f \in C[a, b]$：</p>
+<ul>
+<li><strong>有界性与最值定理</strong>：$f$ 在 $[a, b]$ 上有界且取得最大值 $M$、最小值 $m$</li>
+<li><strong>介值定理</strong>：$\forall \mu \in [m, M], \exists \xi \in [a, b] \text{ s.t. } f(\xi) &#x3D; \mu$</li>
+<li><strong>零点定理</strong>：$f(a)f(b) &lt; 0 \Rightarrow \exists \xi \in (a, b), f(\xi) &#x3D; 0$</li>
+</ul>
+<blockquote>
+<p>全部以 $f$ 在闭区间 $[a, b]$ 上连续为前提（开区间或仅去掉端点连续均可能失效）。零点定理用于证明方程根的存在性；介值定理用于证明取到中间值。</p>
+</blockquote>
+<hr>
+<h2 id="14-反函数（存在性与对称性）"><a href="#14-反函数（存在性与对称性）" class="headerlink" title="14. 反函数（存在性与对称性）"></a>14. 反函数（存在性与对称性）</h2><ul>
+<li>$y &#x3D; f(x)$ 在区间上严格单调连续 $\Rightarrow \exists x &#x3D; f^{-1}(y)$ 严格单调连续</li>
+<li>图形关于 $y &#x3D; x$ 对称；$f(f^{-1}(y)) &#x3D; y, f^{-1}(f(x)) &#x3D; x$</li>
+</ul>
+<blockquote>
+<p>反函数存在的充分条件是原函数在区间上严格单调（连续非必需，但区间上严格单调即可保证反函数存在且与原函数有相同单调性）。<br>恒等式须注意主值范围：$\sin(\arcsin x) &#x3D; x \quad (x \in [-1, 1])$ 恒成立，但 $\arcsin(\sin x) &#x3D; x$ 仅在 $x \in \left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$ 成立。</p>
+</blockquote>
+<hr>
+<h2 id="15-函数的奇偶性、周期性、有界性、单调性"><a href="#15-函数的奇偶性、周期性、有界性、单调性" class="headerlink" title="15. 函数的奇偶性、周期性、有界性、单调性"></a>15. 函数的奇偶性、周期性、有界性、单调性</h2><ul>
+<li><strong>奇</strong>：$f(-x) &#x3D; -f(x)$（图象关于原点对称）； <strong>偶</strong>：$f(-x) &#x3D; f(x)$（关于 $y$ 轴对称）</li>
+<li><strong>周期</strong>：$f(x + T) &#x3D; f(x) \quad (T \neq 0)$</li>
+<li><strong>有界</strong>：$\exists M &gt; 0, \forall x, \vert{}f(x)\vert{} \le M$</li>
+<li><strong>单调增定义</strong>：$x_1 &lt; x_2 \Rightarrow f(x_1) &lt; f(x_2)$</li>
+</ul>
+<blockquote>
+<p>定义域须关于原点对称才能讨论奇偶。奇函数若在 $0$ 处有定义则 $f(0) &#x3D; 0$；奇 $\times$ 奇 $&#x3D;$ 偶，奇 $\times$ 偶 $&#x3D;$ 奇。这些性质决定图形特征并简化积分&#x2F;级数计算（如奇函数在对称区间上积分为 $0$）。</p>
+</blockquote>
+<hr>
+<h2 id="16-洛必达法则（未定式极限）"><a href="#16-洛必达法则（未定式极限）" class="headerlink" title="16. 洛必达法则（未定式极限）"></a>16. 洛必达法则（未定式极限）</h2><p>$$<br>\lim \frac{f(x)}{g(x)} &#x3D; \lim \frac{f’(x)}{g’(x)}<br>$$</p>
+<blockquote>
+<p>仅适用于 $\frac{0}{0}$ 或 $\frac{\infty}{\infty}$ 型；要求 $f, g$ 在 $x_0$ 的某去心邻域内可导、$g’(x) \neq 0$，且右端 $\lim \frac{f’}{g’}$ 存在或为 $\infty$。<br>$0 \cdot \infty, \infty - \infty, 1^\infty, 0^0, \infty^0$ 须先化为前两种。右端极限不存在（且非 $\infty$）时法则失效，不能据此断言左端不存在。数列极限不能直接用洛必达（先化为函数极限或用海涅定理）。</p>
+</blockquote>
+<hr>
+<h2 id="17-几个标准未定式极限结论"><a href="#17-几个标准未定式极限结论" class="headerlink" title="17. 几个标准未定式极限结论"></a>17. 几个标准未定式极限结论</h2><h3 id="有理分式-x-to-infty"><a href="#有理分式-x-to-infty" class="headerlink" title="有理分式 ($x \to \infty$)"></a>有理分式 ($x \to \infty$)</h3><p>$$<br>\lim_{x \to \infty} \frac{a_n x^n + \dots}{b_m x^m + \dots} &#x3D;  \begin{cases}  \frac{a_n}{b_m} &amp; n &#x3D; m \  0 &amp; n &lt; m \  \infty &amp; n &gt; m  \end{cases} \quad (a_n, b_m \neq 0)<br>$$</p>
+<h3 id="增长速度阶梯-x-to-infty"><a href="#增长速度阶梯-x-to-infty" class="headerlink" title="增长速度阶梯 ($x \to +\infty$)"></a>增长速度阶梯 ($x \to +\infty$)</h3><ul>
+<li>$\lim_{x \to +\infty} \frac{\ln^a x}{x^b} &#x3D; 0 \quad (a, b &gt; 0)$</li>
+<li>$\lim_{x \to +\infty} \frac{x^b}{a^x} &#x3D; 0 \quad (a &gt; 1, b &gt; 0)$</li>
+<li>$\lim_{x \to +\infty} \frac{x^b}{e^{cx}} &#x3D; 0 \quad (b, c &gt; 0)$</li>
+</ul>
+<blockquote>
+<p>有理分式 $x \to \infty$ 看最高次比。<br><strong>增长速度阶梯</strong>（$x \to +\infty$，逐档以极限为 $0$ 表述）：</p>
+<p>$$<br>\text{对数} \ll \text{幂} \ll \text{指数}<br>$$</p>
+<p>即对任意 $a, b &gt; 0$ 有 $\lim \frac{\ln^a x}{x^b} &#x3D; 0$，对任意 $b &gt; 0, q &gt; 1$ 有 $\lim \frac{x^b}{q^x} &#x3D; 0$。可直接套用于 $\frac{\infty}{\infty}$ 型快速判别，避免反复洛必达。</p>
+</blockquote>
+<hr>
+<h2 id="18-常用麦克劳林（泰勒）展开式-x-to-0"><a href="#18-常用麦克劳林（泰勒）展开式-x-to-0" class="headerlink" title="18. 常用麦克劳林（泰勒）展开式 ($x \to 0$)"></a>18. 常用麦克劳林（泰勒）展开式 ($x \to 0$)</h2><ul>
+<li>$e^x &#x3D; 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + o(x^3)$</li>
+<li>$\sin x &#x3D; x - \frac{x^3}{3!} + o(x^4)$</li>
+<li>$\cos x &#x3D; 1 - \frac{x^2}{2!} + \frac{x^4}{4!} + o(x^4)$</li>
+<li>$\ln(1 + x) &#x3D; x - \frac{x^2}{2} + \frac{x^3}{3} + o(x^3)$</li>
+<li>$(1 + x)^\alpha &#x3D; 1 + \alpha x + \frac{\alpha(\alpha - 1)}{2!}x^2 + o(x^2)$</li>
+<li>$\tan x &#x3D; x + \frac{1}{3}x^3 + o(x^3)$</li>
+<li>$\arctan x &#x3D; x - \frac{1}{3}x^3 + o(x^3)$</li>
+<li>$\arcsin x &#x3D; x + \frac{1}{6}x^3 + o(x^3)$</li>
+</ul>
+<blockquote>
+<p><strong>求极限神器</strong>：遇加减型未定式（等价无穷小会丢主部时）一律展到“分子分母最低非零次”即可。<br><strong>常用速记</strong>：</p>
+<ul>
+<li>$\frac{1}{1 - x} &#x3D; 1 + x + x^2 + \dots \quad (\vert{}x\vert{} &lt; 1)$</li>
+<li>$\frac{1}{1 + x} &#x3D; 1 - x + x^2 - \dots \quad (\vert{}x\vert{} &lt; 1)$</li>
+</ul>
+<p><strong>【例】</strong> $\lim_{x \to 0} \frac{x - \sin x}{x^3} &#x3D; \lim \frac{x - \left(x - \frac{x^3}{6}\right)}{x^3} &#x3D; \frac{1}{6}$<br><strong>【例】</strong> $\lim_{x \to 0} \frac{\tan x - x}{x^3} &#x3D; \frac{1}{3}$。展开后按需保留到同阶，$o$ 项可丢。</p>
+</blockquote>
+<hr>
+<h2 id="19-幂指函数求极限通法-u-v-化指数"><a href="#19-幂指函数求极限通法-u-v-化指数" class="headerlink" title="19. 幂指函数求极限通法 ($u^v$ 化指数)"></a>19. 幂指函数求极限通法 ($u^v$ 化指数)</h2><p>$$<br>\lim u(x)^{v(x)} &#x3D; \exp\left(\lim v(x) \ln u(x)\right) \quad (u &gt; 0)<br>$$</p>
+<blockquote>
+<p>一切幂指型 $u^v$（含 $1^\infty, 0^0, \infty^0$）的总入口：先写 $u^v &#x3D; e^{v \ln u}$，再求指数上 $\lim v \ln u$（常化为 $\frac{0}{0}$ 或 $\frac{\infty}{\infty}$ 用洛必达&#x2F;等价无穷小）。<br><strong>特别地 $1^\infty$ 型有捷径</strong>：$u \to 1, v \to \infty$ 时 $\ln u \sim u - 1$，故 $\lim u^v &#x3D; e^{\lim v(u - 1)}$。<br><strong>【例】</strong> $\lim_{x \to 0} (1 + \sin x)^{1&#x2F;x} &#x3D; e^{\lim \frac{\sin x}{x}} &#x3D; e$。</p>
+</blockquote>
+<hr>
+<h2 id="20-数列极限的定积分定义法-n-项和求极限"><a href="#20-数列极限的定积分定义法-n-项和求极限" class="headerlink" title="20. 数列极限的定积分定义法 ($n$ 项和求极限)"></a>20. 数列极限的定积分定义法 ($n$ 项和求极限)</h2><p>$$<br>\lim_{n \to \infty} \frac{1}{n} \sum_{k&#x3D;1}^n f\left(\frac{k}{n}\right) &#x3D; \int_0^1 f(x) , dx<br>$$</p>
+<blockquote>
+<p>$n$ 项和求极限的标配套路（夹逼之外的另一主力）：把和式整理成 $\frac{1}{n} \sum f\left(\frac{k}{n}\right)$ 的黎曼和形式，$\frac{1}{n}$ 视作 $\Delta x$、$\frac{k}{n}$ 视作取样点，即化为 $[0, 1]$ 上定积分。<br><strong>更一般形式</strong>：</p>
+<p>$$<br>\frac{1}{n} \sum_{k&#x3D;1}^n f\left(a + \frac{(b-a)k}{n}\right) \to \frac{1}{b-a} \int_a^b f(x) , dx<br>$$</p>
+<p><strong>【例】</strong> $\lim_{n \to \infty} \sum_{k&#x3D;1}^n \frac{n}{n^2 + k^2} &#x3D; \lim \frac{1}{n} \sum \frac{1}{1 + (k&#x2F;n)^2} &#x3D; \int_0^1 \frac{dx}{1 + x^2} &#x3D; \frac{\pi}{4}$。<br><em>注意：求和项数与 $n$ 不同步、放缩两端同极限时改用夹逼。</em></p>
+</blockquote>
+<hr>
+<h2 id="21-海涅定理（归结原则）"><a href="#21-海涅定理（归结原则）" class="headerlink" title="21. 海涅定理（归结原则）"></a>21. 海涅定理（归结原则）</h2><p>$$<br>\lim_{x \to x_0} f(x) &#x3D; A \iff \forall {x_n} \to x_0 \ (x_n \neq x_0), \lim_{n \to \infty} f(x_n) &#x3D; A<br>$$</p>
+<blockquote>
+<p>函数极限与数列极限的桥梁（$x_0$ 可为有限值或 $\infty$）。<br><strong>两大用途</strong>：</p>
+<ol>
+<li>把数列极限转成函数极限以便用洛必达&#x2F;等价无穷小（如求 $\lim_{n \to \infty} n \sin \frac{1}{n}$ 先看 $\lim_{x \to \infty} x \sin \frac{1}{x}$）；</li>
+<li>证“极限不存在”——只要找到两个趋于 $x_0$ 的子列 ${x_n}, {y_n}$ 使 $\lim f(x_n) \neq \lim f(y_n)$ 即可。</li>
+</ol>
+<p><strong>【例】</strong> $\lim_{x \to 0} \sin \frac{1}{x}$ 不存在，取 $x_n &#x3D; \frac{1}{n\pi}$ 得 $0$、取 $y_n &#x3D; \frac{1}{2n\pi + \pi&#x2F;2}$ 得 $1$。</p>
+</blockquote>
+<hr>
+<h2 id="22-常见数列极限小结论"><a href="#22-常见数列极限小结论" class="headerlink" title="22. 常见数列极限小结论"></a>22. 常见数列极限小结论</h2><ul>
+<li>$\lim_{n \to \infty} \sqrt[n]{n} &#x3D; 1$</li>
+<li>$\lim_{n \to \infty} \sqrt[n]{a} &#x3D; 1 \quad (a &gt; 0)$</li>
+<li>$\lim_{n \to \infty} \sqrt[n]{a_1^n + a_2^n + \dots + a_m^n} &#x3D; \max{a_1, \dots, a_m} \quad (a_i &gt; 0)$</li>
+<li>$\lim_{n \to \infty} \frac{\sqrt[n]{n!}}{n} &#x3D; \frac{1}{e}$</li>
+<li>$\lim_{n \to \infty} \frac{a^n}{n!} &#x3D; 0 \quad (\forall a)$</li>
+</ul>
+<blockquote>
+<p>抽屉里随手取用的结果，多由夹逼或取对数化和式得到。</p>
+<ul>
+<li>$\sqrt[n]{n} \to 1, \sqrt[n]{a} \to 1$ 是夹逼经典；</li>
+<li>$\sqrt[n]{\sum a_i^n} \to \max a_i$ 用 $\max a_i \le \sqrt[n]{\sum a_i^n} \le \sqrt[n]{m} \max a_i$ 夹（常用于 $\lim \sqrt[n]{2^n + 3^n} &#x3D; 3$）；</li>
+<li>$\frac{\sqrt[n]{n!}}{n} \to \frac{1}{e}$ 可用定积分定义法对 $\ln$ 求和得 $\int_0^1 \ln x , dx &#x3D; -1$。</li>
+</ul>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/" class="category-chain-item">高等数学</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/%E5%87%BD%E6%95%B0%E3%80%81%E6%9E%81%E9%99%90%E3%80%81%E8%BF%9E%E7%BB%AD/" class="category-chain-item">函数、极限、连续</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6/" class="print-no-link">#数学</a>
+      
+        <a href="/tags/%E5%85%AC%E5%BC%8F%E6%95%B4%E7%90%86/" class="print-no-link">#公式整理</a>
+      
+        <a href="/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/" class="print-no-link">#高等数学</a>
+      
+        <a href="/tags/%E5%87%BD%E6%95%B0/" class="print-no-link">#函数</a>
+      
+        <a href="/tags/%E6%9E%81%E9%99%90/" class="print-no-link">#极限</a>
+      
+        <a href="/tags/%E8%BF%9E%E7%BB%AD/" class="print-no-link">#连续</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>函数、极限与连续</div>
+      <div>http://example.com/2026/07/28/数学/高等数学/1函数、极限、连续/函数、极限、连续公式/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>zhenhong</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年7月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/07/28/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/1%E5%87%BD%E6%95%B0%E3%80%81%E6%9E%81%E9%99%90%E3%80%81%E8%BF%9E%E7%BB%AD/%E5%87%BD%E6%95%B0%E3%80%81%E6%9E%81%E9%99%90%E4%B8%8E%E8%BF%9E%E7%BB%AD/" title="函数、极限与连续">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">函数、极限与连续</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/07/28/%E6%95%B0%E5%AD%A6/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/5%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E5%85%AC%E5%BC%8F/" title="">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
