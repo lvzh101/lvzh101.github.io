@@ -19,21 +19,24 @@
   <meta name="author" content="zhenhong">
   <meta name="keywords" content="">
   
-    <meta name="description" content="LT 和 ET 是 epoll 的两种事件触发模式：  LT：Level Trigger，水平触发 ET：Edge Trigger，边缘触发  可以把它们理解成：内核什么时候提醒你“这个 fd 可读&#x2F;可写了”。 先说结论  LT：只要 fd 还处于可读&#x2F;可写状态，就会一直通知你 ET：只在状态“发生变化”的那一刻通知你一次   LT：水平触发 如果 socket 里还有数据没读">
+    <meta name="description" content="这篇文章用来长期整理三角函数里最常用、最容易混淆的公式。 尽量按下面这个原则来记：  先记基础定义 再记恒等关系 再记诱导公式 最后记变形公式  如果暂时记不全，至少先把最常做题会用到的部分记熟。  基础定义设直角三角形中，一个锐角为 $\alpha$，其对边、邻边、斜边分别记作 $a,b,c$。 其中：  $a$ 表示对边 $b$ 表示邻边 $c$ 表示斜边  则有 $$\sin\alpha&amp;#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="epoll事件触发方式">
-<meta property="og:url" content="http://example.com/2026/03/05/%E8%AE%A1%E7%BD%91%E5%85%AB%E8%82%A1/epoll%E4%BA%8B%E4%BB%B6%E8%A7%A6%E5%8F%91%E6%96%B9%E5%BC%8F/index.html">
+<meta property="og:title" content="三角函数公式整理">
+<meta property="og:url" content="http://example.com/2026/05/03/%E6%95%B0%E5%AD%A6/%E9%9B%B6%E5%9F%BA%E7%A1%80/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%85%AC%E5%BC%8F%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="personalBlog">
-<meta property="og:description" content="LT 和 ET 是 epoll 的两种事件触发模式：  LT：Level Trigger，水平触发 ET：Edge Trigger，边缘触发  可以把它们理解成：内核什么时候提醒你“这个 fd 可读&#x2F;可写了”。 先说结论  LT：只要 fd 还处于可读&#x2F;可写状态，就会一直通知你 ET：只在状态“发生变化”的那一刻通知你一次   LT：水平触发 如果 socket 里还有数据没读">
+<meta property="og:description" content="这篇文章用来长期整理三角函数里最常用、最容易混淆的公式。 尽量按下面这个原则来记：  先记基础定义 再记恒等关系 再记诱导公式 最后记变形公式  如果暂时记不全，至少先把最常做题会用到的部分记熟。  基础定义设直角三角形中，一个锐角为 $\alpha$，其对边、邻边、斜边分别记作 $a,b,c$。 其中：  $a$ 表示对边 $b$ 表示邻边 $c$ 表示斜边  则有 $$\sin\alpha&amp;#">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-03-05T19:09:15.000Z">
-<meta property="article:modified_time" content="2026-03-10T09:29:18.438Z">
+<meta property="article:published_time" content="2026-05-03T02:30:00.000Z">
+<meta property="article:modified_time" content="2026-07-26T07:39:13.695Z">
 <meta property="article:author" content="zhenhong">
+<meta property="article:tag" content="三角函数">
+<meta property="article:tag" content="公式整理">
+<meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>epoll事件触发方式 - personalBlog</title>
+  <title>三角函数公式整理 - personalBlog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="epoll事件触发方式"></span>
+            <span id="subtitle" data-typed-text="三角函数公式整理"></span>
           
         </div>
 
@@ -210,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-03-06 03:09" pubdate>
-          2026年3月6日 凌晨
+        <time datetime="2026-05-03 10:30" pubdate>
+          2026年5月3日 上午
         </time>
       </span>
     
@@ -222,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          926 字
+          1.7k 字
         
       </span>
     
@@ -233,7 +236,7 @@
         
         
         
-          8 分钟
+          15 分钟
         
       </span>
     
@@ -270,145 +273,221 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">epoll事件触发方式</h1>
+            <h1 id="seo-header">三角函数公式整理</h1>
             
             
               <div class="markdown-body">
                 
-                <p><code>LT</code> 和 <code>ET</code> 是 <code>epoll</code> 的两种事件触发模式：</p>
+                <p>这篇文章用来长期整理三角函数里最常用、最容易混淆的公式。</p>
+<p>尽量按下面这个原则来记：</p>
 <ul>
-<li><code>LT</code>：Level Trigger，水平触发</li>
-<li><code>ET</code>：Edge Trigger，边缘触发</li>
+<li>先记基础定义</li>
+<li>再记恒等关系</li>
+<li>再记诱导公式</li>
+<li>最后记变形公式</li>
 </ul>
-<p>可以把它们理解成：<strong>内核什么时候提醒你“这个 fd 可读&#x2F;可写了”</strong>。</p>
-<p><strong>先说结论</strong></p>
+<p>如果暂时记不全，至少先把最常做题会用到的部分记熟。</p>
+<hr>
+<h2 id="基础定义"><a href="#基础定义" class="headerlink" title="基础定义"></a>基础定义</h2><p>设直角三角形中，一个锐角为 $\alpha$，其对边、邻边、斜边分别记作 $a,b,c$。</p>
+<p>其中：</p>
 <ul>
-<li><code>LT</code>：只要 fd 还处于可读&#x2F;可写状态，就会一直通知你</li>
-<li><code>ET</code>：只在状态“发生变化”的那一刻通知你一次</li>
+<li>$a$ 表示对边</li>
+<li>$b$ 表示邻边</li>
+<li>$c$ 表示斜边</li>
+</ul>
+<p>则有</p>
+<p>$$<br>\sin\alpha&#x3D;\frac{a}{c}<br>$$</p>
+<p>$$<br>\cos\alpha&#x3D;\frac{b}{c}<br>$$</p>
+<p>$$<br>\tan\alpha&#x3D;\frac{a}{b}<br>$$</p>
+<hr>
+<h2 id="倒数关系"><a href="#倒数关系" class="headerlink" title="倒数关系"></a>倒数关系</h2><p>三角函数里常见的六个函数是：</p>
+<ul>
+<li>正弦 $\sin x$</li>
+<li>余弦 $\cos x$</li>
+<li>正切 $\tan x$</li>
+<li>余切 $\cot x$</li>
+<li>正割 $\sec x$</li>
+<li>余割 $\csc x$</li>
+</ul>
+<p>它们的倒数关系是：</p>
+<p>$$<br>\csc x&#x3D;\frac{1}{\sin x}<br>$$</p>
+<p>$$<br>\sec x&#x3D;\frac{1}{\cos x}<br>$$</p>
+<p>$$<br>\cot x&#x3D;\frac{1}{\tan x}<br>$$</p>
+<p>也可以反过来写成</p>
+<p>$$<br>\sin x&#x3D;\frac{1}{\csc x},\qquad \cos x&#x3D;\frac{1}{\sec x},\qquad \tan x&#x3D;\frac{1}{\cot x}<br>$$</p>
+<hr>
+<h2 id="商数关系"><a href="#商数关系" class="headerlink" title="商数关系"></a>商数关系</h2><p>$$<br>\tan x&#x3D;\frac{\sin x}{\cos x}<br>$$</p>
+<p>其中，$\cos x \ne 0$。</p>
+<p>$$<br>\cot x&#x3D;\frac{\cos x}{\sin x}<br>$$</p>
+<p>其中，$\sin x \ne 0$。</p>
+<p>这两条在化简题里非常常用。</p>
+<hr>
+<h2 id="平方关系"><a href="#平方关系" class="headerlink" title="平方关系"></a>平方关系</h2><p>这是最核心的一组公式。</p>
+<p>$$<br>\sin^2 x+\cos^2 x&#x3D;1<br>$$</p>
+<p>由它可以推出</p>
+<p>$$<br>1-\sin^2 x&#x3D;\cos^2 x<br>$$</p>
+<p>$$<br>1-\cos^2 x&#x3D;\sin^2 x<br>$$</p>
+<p>两边同除以 $\cos^2 x$，可得</p>
+<p>$$<br>1+\tan^2 x&#x3D;\sec^2 x<br>$$</p>
+<p>两边同除以 $\sin^2 x$，可得</p>
+<p>$$<br>1+\cot^2 x&#x3D;\csc^2 x<br>$$</p>
+<p>也就是常写成</p>
+<p>$$<br>\sec^2 x&#x3D;1+\tan^2 x<br>$$</p>
+<p>$$<br>\csc^2 x&#x3D;1+\cot^2 x<br>$$</p>
+<p>这两条在已知 $\tan x$ 求 $\sec x$，或者已知 $\cot x$ 求 $\csc x$ 时特别常用。</p>
+<p>但要注意：</p>
+<ul>
+<li>由 $\sec^2 x&#x3D;9$ 只能先得到 $\sec x&#x3D;\pm 3$</li>
+<li>由 $\csc^2 x&#x3D;9$ 也只能先得到 $\csc x&#x3D;\pm 3$</li>
+</ul>
+<p>最后取正还是取负，要结合 $x$ 所在象限判断，不能直接只写正号。</p>
+<hr>
+<h2 id="特殊角函数值"><a href="#特殊角函数值" class="headerlink" title="特殊角函数值"></a>特殊角函数值</h2><h3 id="1-常见特殊角"><a href="#1-常见特殊角" class="headerlink" title="1. 常见特殊角"></a>1. 常见特殊角</h3><p>$$<br>\sin 0&#x3D;0,\qquad \cos 0&#x3D;1,\qquad \tan 0&#x3D;0<br>$$</p>
+<p>$$<br>\sin \frac{\pi}{6}&#x3D;\frac12,\qquad \cos \frac{\pi}{6}&#x3D;\frac{\sqrt3}{2},\qquad \tan \frac{\pi}{6}&#x3D;\frac{\sqrt3}{3}<br>$$</p>
+<p>$$<br>\sin \frac{\pi}{4}&#x3D;\frac{\sqrt2}{2},\qquad \cos \frac{\pi}{4}&#x3D;\frac{\sqrt2}{2},\qquad \tan \frac{\pi}{4}&#x3D;1<br>$$</p>
+<p>$$<br>\sin \frac{\pi}{3}&#x3D;\frac{\sqrt3}{2},\qquad \cos \frac{\pi}{3}&#x3D;\frac12,\qquad \tan \frac{\pi}{3}&#x3D;\sqrt3<br>$$</p>
+<p>$$<br>\sin \frac{\pi}{2}&#x3D;1,\qquad \cos \frac{\pi}{2}&#x3D;0<br>$$</p>
+<p>$\tan \frac{\pi}{2}$ 不存在。</p>
+<h3 id="2-记忆方法"><a href="#2-记忆方法" class="headerlink" title="2. 记忆方法"></a>2. 记忆方法</h3><ul>
+<li>正弦从小到大：$0,\frac12,\frac{\sqrt2}{2},\frac{\sqrt3}{2},1$</li>
+<li>余弦从大到小：$1,\frac{\sqrt3}{2},\frac{\sqrt2}{2},\frac12,0$</li>
+<li>正切用 $\tan x&#x3D;\frac{\sin x}{\cos x}$ 去推</li>
 </ul>
 <hr>
-<p><strong>LT：水平触发</strong></p>
-<p>如果 socket 里还有数据没读完，那么它一直是“可读”的。</p>
-<p>这时在 <code>LT</code> 模式下：</p>
+<h2 id="诱导公式"><a href="#诱导公式" class="headerlink" title="诱导公式"></a>诱导公式</h2><p>诱导公式本质上就是把“大角、负角、奇怪的角”化成熟悉的角。</p>
+<h3 id="1-负角公式"><a href="#1-负角公式" class="headerlink" title="1. 负角公式"></a>1. 负角公式</h3><p>$$<br>\sin(-x)&#x3D;-\sin x<br>$$</p>
+<p>$$<br>\cos(-x)&#x3D;\cos x<br>$$</p>
+<p>$$<br>\tan(-x)&#x3D;-\tan x<br>$$</p>
+<p>结论：</p>
 <ul>
-<li>你调用一次 <code>epoll_wait</code></li>
-<li>内核告诉你：这个 fd 可读</li>
-<li>你只读了一部分，没读完</li>
-<li>下次 <code>epoll_wait</code>，内核还会继续告诉你：这个 fd 仍然可读</li>
+<li>正弦是奇函数</li>
+<li>余弦是偶函数</li>
+<li>正切是奇函数</li>
 </ul>
-<p>也就是说：</p>
+<h3 id="2-与-pi-有关的公式"><a href="#2-与-pi-有关的公式" class="headerlink" title="2. 与 $\pi$ 有关的公式"></a>2. 与 $\pi$ 有关的公式</h3><p>$$<br>\sin(\pi-x)&#x3D;\sin x<br>$$</p>
+<p>$$<br>\cos(\pi-x)&#x3D;-\cos x<br>$$</p>
+<p>$$<br>\tan(\pi-x)&#x3D;-\tan x<br>$$</p>
+<p>$$<br>\sin(\pi+x)&#x3D;-\sin x<br>$$</p>
+<p>$$<br>\cos(\pi+x)&#x3D;-\cos x<br>$$</p>
+<p>$$<br>\tan(\pi+x)&#x3D;\tan x<br>$$</p>
+<h3 id="3-与-frac-pi-2-有关的公式"><a href="#3-与-frac-pi-2-有关的公式" class="headerlink" title="3. 与 $\frac{\pi}{2}$ 有关的公式"></a>3. 与 $\frac{\pi}{2}$ 有关的公式</h3><p>$$<br>\sin\left(\frac{\pi}{2}-x\right)&#x3D;\cos x<br>$$</p>
+<p>$$<br>\cos\left(\frac{\pi}{2}-x\right)&#x3D;\sin x<br>$$</p>
+<p>$$<br>\tan\left(\frac{\pi}{2}-x\right)&#x3D;\cot x<br>$$</p>
+<p>$$<br>\sin\left(\frac{\pi}{2}+x\right)&#x3D;\cos x<br>$$</p>
+<p>$$<br>\cos\left(\frac{\pi}{2}+x\right)&#x3D;-\sin x<br>$$</p>
+<p>$$<br>\tan\left(\frac{\pi}{2}+x\right)&#x3D;-\cot x<br>$$</p>
+<h3 id="4-一般记忆口诀"><a href="#4-一般记忆口诀" class="headerlink" title="4. 一般记忆口诀"></a>4. 一般记忆口诀</h3><p>可记成：</p>
 <ul>
-<li><strong>条件没消失，就持续通知</strong></li>
-<li>编程更直观，不容易漏事件</li>
+<li>奇变偶不变</li>
+<li>符号看象限</li>
 </ul>
-<p><strong>例子</strong></p>
-<p>假设 socket 收到了 100 字节数据：</p>
-<ul>
-<li>你这次只读了 20 字节</li>
-<li>还有 80 字节留在内核缓冲区</li>
-<li>下次 <code>epoll_wait</code> 还会返回这个 fd 可读</li>
-</ul>
-<p>所以 LT 像是在说：</p>
-<blockquote>
-<p>“这个条件现在还成立，你还没处理完。”</p>
-</blockquote>
+<p>其中“奇、偶”说的是把角化到 $\frac{\pi}{2}$ 的奇数倍还是整数倍后，名称是否变化。</p>
 <hr>
-<p><strong>ET：边缘触发</strong></p>
-<p><code>ET</code> 关注的是“状态变化的边缘”。</p>
-<p>比如一个 socket 原来不可读，后来来了数据，变成可读：</p>
-<ul>
-<li>内核只会在这个“不可读 -&gt; 可读”的变化发生时通知你一次</li>
-</ul>
-<p>如果你收到通知后没有把数据一次性读完：</p>
-<ul>
-<li>缓冲区里虽然还留着数据</li>
-<li>但因为“可读”这个状态没有再次变化</li>
-<li>内核<strong>不一定再通知你</strong></li>
-</ul>
-<p>所以 ET 像是在说：</p>
-<blockquote>
-<p>“我提醒过你一次了，剩下你自己处理干净。”</p>
-</blockquote>
+<h2 id="和差公式"><a href="#和差公式" class="headerlink" title="和差公式"></a>和差公式</h2><h3 id="1-正弦和差公式"><a href="#1-正弦和差公式" class="headerlink" title="1. 正弦和差公式"></a>1. 正弦和差公式</h3><p>$$<br>\sin(\alpha+\beta)&#x3D;\sin\alpha\cos\beta+\cos\alpha\sin\beta<br>$$</p>
+<p>$$<br>\sin(\alpha-\beta)&#x3D;\sin\alpha\cos\beta-\cos\alpha\sin\beta<br>$$</p>
+<h3 id="2-余弦和差公式"><a href="#2-余弦和差公式" class="headerlink" title="2. 余弦和差公式"></a>2. 余弦和差公式</h3><p>$$<br>\cos(\alpha+\beta)&#x3D;\cos\alpha\cos\beta-\sin\alpha\sin\beta<br>$$</p>
+<p>$$<br>\cos(\alpha-\beta)&#x3D;\cos\alpha\cos\beta+\sin\alpha\sin\beta<br>$$</p>
+<h3 id="3-正切和差公式"><a href="#3-正切和差公式" class="headerlink" title="3. 正切和差公式"></a>3. 正切和差公式</h3><p>$$<br>\tan(\alpha+\beta)&#x3D;\frac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}<br>$$</p>
+<p>$$<br>\tan(\alpha-\beta)&#x3D;\frac{\tan\alpha-\tan\beta}{1+\tan\alpha\tan\beta}<br>$$</p>
+<p>使用前注意分母不能为 0。</p>
 <hr>
-<p><strong>最关键的区别</strong></p>
-<p>假设缓冲区里有数据，你没有读完：</p>
-<ul>
-<li><code>LT</code>：下次还会提醒你</li>
-<li><code>ET</code>：下次可能不提醒你了</li>
-</ul>
-<p>所以 <code>ET</code> 模式下必须特别注意：</p>
-<ul>
-<li>一次事件来了后，要一直读</li>
-<li>读到返回 <code>EAGAIN</code> &#x2F; <code>EWOULDBLOCK</code> 为止</li>
-<li>写也是一样，要一直写到不能写为止</li>
-</ul>
+<h2 id="二倍角公式"><a href="#二倍角公式" class="headerlink" title="二倍角公式"></a>二倍角公式</h2><h3 id="1-正弦二倍角"><a href="#1-正弦二倍角" class="headerlink" title="1. 正弦二倍角"></a>1. 正弦二倍角</h3><p>$$<br>\sin 2x&#x3D;2\sin x\cos x<br>$$</p>
+<h3 id="2-余弦二倍角"><a href="#2-余弦二倍角" class="headerlink" title="2. 余弦二倍角"></a>2. 余弦二倍角</h3><p>$$<br>\cos 2x&#x3D;\cos^2 x-\sin^2 x<br>$$</p>
+<p>它还可以继续变形为</p>
+<p>$$<br>\cos 2x&#x3D;2\cos^2 x-1<br>$$</p>
+<p>$$<br>\cos 2x&#x3D;1-2\sin^2 x<br>$$</p>
+<h3 id="3-正切二倍角"><a href="#3-正切二倍角" class="headerlink" title="3. 正切二倍角"></a>3. 正切二倍角</h3><p>$$<br>\tan 2x&#x3D;\frac{2\tan x}{1-\tan^2 x}<br>$$</p>
 <hr>
-<p><strong>为什么 ET 通常要配合非阻塞 fd</strong></p>
-<p>因为在 ET 模式下你往往会这样写：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">while</span> ((n = read(fd, buf, <span class="hljs-keyword">sizeof</span>(buf))) &gt; <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-comment">// 处理数据</span><br>&#125;<br><span class="hljs-keyword">if</span> (n == <span class="hljs-number">-1</span> &amp;&amp; errno == EAGAIN) &#123;<br>    <span class="hljs-comment">// 说明已经读空了</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>如果 fd 是阻塞的：</p>
-<ul>
-<li>你读着读着，数据没了</li>
-<li><code>read</code> 可能会卡住</li>
-<li>整个事件循环就被阻塞了</li>
-</ul>
-<p>所以实践里：</p>
-<ul>
-<li><code>ET</code> 基本都要搭配 <strong>非阻塞 socket</strong></li>
-<li><code>LT</code> 虽然也常配非阻塞，但要求没那么死</li>
-</ul>
+<h2 id="半角公式"><a href="#半角公式" class="headerlink" title="半角公式"></a>半角公式</h2><p>由二倍角公式可推出半角公式。</p>
+<p>$$<br>\sin^2\frac{x}{2}&#x3D;\frac{1-\cos x}{2}<br>$$</p>
+<p>$$<br>\cos^2\frac{x}{2}&#x3D;\frac{1+\cos x}{2}<br>$$</p>
+<p>$$<br>\tan\frac{x}{2}&#x3D;\frac{\sin x}{1+\cos x}<br>$$</p>
+<p>$$<br>\tan\frac{x}{2}&#x3D;\frac{1-\cos x}{\sin x}<br>$$</p>
+<p>$$<br>\tan\frac{x}{2}&#x3D;\pm\sqrt{\frac{1-\cos x}{1+\cos x}}<br>$$</p>
+<p>最后一个公式有正负号，具体取正还是取负，要看 $\frac{x}{2}$ 所在象限。</p>
 <hr>
-<p><strong>一个直观类比</strong></p>
-<p>把 socket 缓冲区想成邮箱。</p>
-<ul>
-<li><code>LT</code>：只要邮箱里还有信，邮差每次都会提醒你“还有信”</li>
-<li><code>ET</code>：只有“新信刚投进邮箱”的瞬间提醒你一次；你不把邮箱清空，下次未必再提醒</li>
-</ul>
+<h2 id="积化和差公式"><a href="#积化和差公式" class="headerlink" title="积化和差公式"></a>积化和差公式</h2><p>这部分在恒等变形和解题里也很常见。</p>
+<p>$$<br>\sin\alpha\cos\beta&#x3D;\frac12[\sin(\alpha+\beta)+\sin(\alpha-\beta)]<br>$$</p>
+<p>$$<br>\cos\alpha\sin\beta&#x3D;\frac12[\sin(\alpha+\beta)-\sin(\alpha-\beta)]<br>$$</p>
+<p>$$<br>\cos\alpha\cos\beta&#x3D;\frac12[\cos(\alpha+\beta)+\cos(\alpha-\beta)]<br>$$</p>
+<p>$$<br>\sin\alpha\sin\beta&#x3D;\frac12[\cos(\alpha-\beta)-\cos(\alpha+\beta)]<br>$$</p>
 <hr>
-<p><strong>LT 的特点</strong></p>
-<ul>
-<li>简单、稳妥</li>
-<li>不容易漏读漏写</li>
-<li>更适合新手和大多数普通场景</li>
-<li>默认就是 LT</li>
-</ul>
-<p>如果你注册事件时不加 <code>EPOLLET</code>，那就是 LT。</p>
+<h2 id="和差化积公式"><a href="#和差化积公式" class="headerlink" title="和差化积公式"></a>和差化积公式</h2><p>$$<br>\sin\alpha+\sin\beta&#x3D;2\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}<br>$$</p>
+<p>$$<br>\sin\alpha-\sin\beta&#x3D;2\cos\frac{\alpha+\beta}{2}\sin\frac{\alpha-\beta}{2}<br>$$</p>
+<p>$$<br>\cos\alpha+\cos\beta&#x3D;2\cos\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}<br>$$</p>
+<p>$$<br>\cos\alpha-\cos\beta&#x3D;-2\sin\frac{\alpha+\beta}{2}\sin\frac{\alpha-\beta}{2}<br>$$</p>
 <hr>
-<p><strong>ET 的特点</strong></p>
+<h2 id="万能公式"><a href="#万能公式" class="headerlink" title="万能公式"></a>万能公式</h2><p>设</p>
+<p>$$<br>t&#x3D;\tan\frac{x}{2}<br>$$</p>
+<p>则有</p>
+<p>$$<br>\sin x&#x3D;\frac{2t}{1+t^2}<br>$$</p>
+<p>$$<br>\cos x&#x3D;\frac{1-t^2}{1+t^2}<br>$$</p>
+<p>$$<br>\tan x&#x3D;\frac{2t}{1-t^2}<br>$$</p>
+<p>这组公式常用于把三角函数问题转化成代数问题。</p>
+<hr>
+<h2 id="周期性公式"><a href="#周期性公式" class="headerlink" title="周期性公式"></a>周期性公式</h2><h3 id="1-正弦与余弦"><a href="#1-正弦与余弦" class="headerlink" title="1. 正弦与余弦"></a>1. 正弦与余弦</h3><p>$$<br>\sin(x+2k\pi)&#x3D;\sin x<br>$$</p>
+<p>$$<br>\cos(x+2k\pi)&#x3D;\cos x<br>$$</p>
+<p>其中 $k\in\mathbb{Z}$。</p>
+<p>所以：</p>
 <ul>
-<li>通知次数更少</li>
-<li>在高并发场景下可能更高效</li>
-<li>但代码更复杂，更容易出 bug</li>
-<li>一旦没把缓冲区读空&#x2F;写尽，容易“丢通知”</li>
+<li>$\sin x$ 的最小正周期是 $2\pi$</li>
+<li>$\cos x$ 的最小正周期是 $2\pi$</li>
 </ul>
-<p>常见 bug：</p>
+<h3 id="2-正切与余切"><a href="#2-正切与余切" class="headerlink" title="2. 正切与余切"></a>2. 正切与余切</h3><p>$$<br>\tan(x+k\pi)&#x3D;\tan x<br>$$</p>
+<p>$$<br>\cot(x+k\pi)&#x3D;\cot x<br>$$</p>
+<p>其中 $k\in\mathbb{Z}$。</p>
+<p>所以：</p>
 <ul>
-<li>收到 <code>EPOLLIN</code> 后只读一次就结束</li>
-<li>结果缓冲区还有数据</li>
-<li>后面又等不到新的通知</li>
-<li>连接看起来像“卡住了”</li>
+<li>$\tan x$ 的最小正周期是 $\pi$</li>
+<li>$\cot x$ 的最小正周期是 $\pi$</li>
 </ul>
 <hr>
-<p><strong>代码上怎么区分</strong></p>
-<p>LT：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">ev.events = EPOLLIN;<br></code></pre></td></tr></table></figure>
-
-<p>ET：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c">ev.events = EPOLLIN | EPOLLET;<br></code></pre></td></tr></table></figure>
-
-<p>其中 <code>EPOLLET</code> 就表示边缘触发。</p>
-<hr>
-<p><strong>实际开发建议</strong></p>
+<h2 id="常见定义域提醒"><a href="#常见定义域提醒" class="headerlink" title="常见定义域提醒"></a>常见定义域提醒</h2><h3 id="1-正切函数"><a href="#1-正切函数" class="headerlink" title="1. 正切函数"></a>1. 正切函数</h3><p>$$<br>\tan x&#x3D;\frac{\sin x}{\cos x}<br>$$</p>
+<p>所以要求</p>
+<p>$$<br>\cos x\ne 0<br>$$</p>
+<p>即</p>
+<p>$$<br>x\ne \frac{\pi}{2}+k\pi\quad (k\in\mathbb{Z})<br>$$</p>
+<h3 id="2-余切函数"><a href="#2-余切函数" class="headerlink" title="2. 余切函数"></a>2. 余切函数</h3><p>$$<br>\cot x&#x3D;\frac{\cos x}{\sin x}<br>$$</p>
+<p>所以要求</p>
+<p>$$<br>\sin x\ne 0<br>$$</p>
+<p>即</p>
+<p>$$<br>x\ne k\pi\quad (k\in\mathbb{Z})<br>$$</p>
+<h3 id="3-正割与余割"><a href="#3-正割与余割" class="headerlink" title="3. 正割与余割"></a>3. 正割与余割</h3><p>$$<br>\sec x&#x3D;\frac{1}{\cos x},\qquad \csc x&#x3D;\frac{1}{\sin x}<br>$$</p>
+<p>因此：</p>
 <ul>
-<li>如果你在学习、写普通网络程序：<strong>优先 LT</strong></li>
-<li>如果你在做高性能服务器，并且非常清楚非阻塞 + 循环读写 + <code>EAGAIN</code> 的处理：可以用 <strong>ET</strong></li>
+<li>$\sec x$ 要求 $\cos x\ne 0$</li>
+<li>$\csc x$ 要求 $\sin x\ne 0$</li>
 </ul>
 <hr>
-<p><strong>一句话总结</strong></p>
+<h2 id="做题时最常用的几条"><a href="#做题时最常用的几条" class="headerlink" title="做题时最常用的几条"></a>做题时最常用的几条</h2><p>如果刚开始学，优先熟练下面这些：</p>
+<ol>
+<li>$\sin^2 x+\cos^2 x&#x3D;1$</li>
+<li>$\tan x&#x3D;\frac{\sin x}{\cos x}$</li>
+<li>$\sin(\alpha\pm\beta)$、$\cos(\alpha\pm\beta)$</li>
+<li>$\tan(\alpha\pm\beta)$</li>
+<li>$\sin 2x&#x3D;2\sin x\cos x$</li>
+<li>$\cos 2x&#x3D;\cos^2 x-\sin^2 x$</li>
+<li>常见诱导公式</li>
+<li>特殊角函数值</li>
+</ol>
+<p>这几条会了，大多数基础题已经能做不少。</p>
+<hr>
+<h2 id="记忆建议"><a href="#记忆建议" class="headerlink" title="记忆建议"></a>记忆建议</h2><h3 id="1-先背骨架，再背变形"><a href="#1-先背骨架，再背变形" class="headerlink" title="1. 先背骨架，再背变形"></a>1. 先背骨架，再背变形</h3><p>先掌握：</p>
 <ul>
-<li><code>LT</code>：没处理完，内核会反复提醒</li>
-<li><code>ET</code>：只在状态变化时提醒一次，你必须自己一次处理干净</li>
+<li>平方关系</li>
+<li>和差公式</li>
+<li>二倍角公式</li>
+<li>诱导公式</li>
+</ul>
+<p>之后再从这些公式推半角、积化和差、和差化积。</p>
+<h3 id="2-正切公式最后记"><a href="#2-正切公式最后记" class="headerlink" title="2. 正切公式最后记"></a>2. 正切公式最后记</h3><p>因为正切公式很多都可以由</p>
+<p>$$<br>\tan x&#x3D;\frac{\sin x}{\cos x}<br>$$</p>
+<p>和正弦、余弦公式推出来，所以一开始可以先不死背太多。</p>
+<h3 id="3-做题时注意符号和定义域"><a href="#3-做题时注意符号和定义域" class="headerlink" title="3. 做题时注意符号和定义域"></a>3. 做题时注意符号和定义域</h3><p>很多三角函数题不是不会公式，而是：</p>
+<ul>
+<li>象限判断错了</li>
+<li>正负号写错了</li>
+<li>分母可能为 0 忘了检查</li>
 </ul>
 
                 
@@ -428,12 +507,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/" class="category-chain-item">技术原理</a>
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
   
   
     <span>></span>
     
-  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86/Linux%E7%BD%91%E7%BB%9C/" class="category-chain-item">Linux网络</a>
+  <a href="/categories/%E6%95%B0%E5%AD%A6/%E9%9B%B6%E5%9F%BA%E7%A1%80/" class="category-chain-item">零基础</a>
   
   
 
@@ -447,6 +526,17 @@
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6/" class="print-no-link">#数学</a>
+      
+        <a href="/tags/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/" class="print-no-link">#三角函数</a>
+      
+        <a href="/tags/%E5%85%AC%E5%BC%8F%E6%95%B4%E7%90%86/" class="print-no-link">#公式整理</a>
+      
+    </div>
+  
 </div>
 
 
@@ -455,8 +545,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>epoll事件触发方式</div>
-      <div>http://example.com/2026/03/05/计网八股/epoll事件触发方式/</div>
+      <div>三角函数公式整理</div>
+      <div>http://example.com/2026/05/03/数学/零基础/三角函数公式整理/</div>
     </div>
     <div class="license-meta">
       
@@ -468,7 +558,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年3月6日</div>
+          <div>2026年5月3日</div>
         </div>
       
       
@@ -500,9 +590,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2026/03/06/%E8%AE%A1%E7%BD%91%E5%85%AB%E8%82%A1/%E5%9B%9B%E8%A1%A8%E4%BA%94%E9%93%BE/" title="四表五链">
+                      <a href="/2026/05/20/%E8%AE%A1%E7%AE%97%E8%AE%A1%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/" title="">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">四表五链</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -510,8 +600,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2026/02/28/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C/%E5%BC%B1%E7%BD%91%E6%A3%80%E6%B5%8B/" title="弱网检测">
-                        <span class="hidden-mobile">弱网检测</span>
+                      <a href="/2026/05/03/%E6%95%B0%E5%AD%A6/%E9%9B%B6%E5%9F%BA%E7%A1%80/%E6%95%B0%E5%AD%A6%E9%9B%B6%E5%9F%BA%E7%A1%80%E5%B8%B8%E7%94%A8%E7%BB%93%E8%AE%BA/" title="数学零基础常用结论">
+                        <span class="hidden-mobile">数学零基础常用结论</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
